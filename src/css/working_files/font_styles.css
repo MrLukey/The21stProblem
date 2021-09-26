@@ -3,6 +3,7 @@
 }
 
 html {
+    font-size: 18px;
     font-family: pt-sans-pro, sans-serif;
     font-weight: 100;
     font-style: normal;
@@ -48,12 +49,16 @@ p, .full_ref_wrapper, .full_ref_link, .full_ref_citation {
     font-size: 1.2rem;
 }
 
-.ref_caption, .info_fig_title {
+.ref_caption, .info_fig_caption {
     font-size: 1rem;
     color: black;
 }
 
-p .custom_image_text {
+.info_fig_title {
+    color: black;
+}
+
+p .custom_image_text, .custom_info_fig_caption {
     color: white;
 }
 

@@ -1,20 +1,10 @@
-/*@media screen and (min-width: 600px) {*/
-/*    html {*/
-/*        font-size: 12px;*/
-/*    }*/
-/*}*/
-
-
 @media screen and (min-width: 800px) {
     html {
-        font-size: 14px;
+        font-size: 16px;
     }
-    section {
-        width: 680px;
-    }
-    .main_title {
-        width: 440px;
-    }
+    /*.main_title {*/
+    /*    width: 440px;*/
+    /*}*/
     .info_fig_large {
         width: 600px;
     }
@@ -38,12 +28,9 @@
 
 @media screen and (min-width: 1080px) {
     html {
-        font-size: 12px;
+        font-size: 14px;
     }
-    section {
-        width: 920px;
-    }
-    .main_title, .info_fig {
+    .info_fig {
         width: 800px;
     }
     .info_fig_large {
