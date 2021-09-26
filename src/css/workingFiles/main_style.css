@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    font-size: 12px;
+    background-color: #333;
+    scroll-behavior: smooth;
+}
+
+section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 10px;
+    width: 360px;
+}
+
+.problem_list {
+    margin-bottom: 50px;
+}
+
+ul {
+    margin-left: 10px;
+    width: 100%;
+}
+
+#title_section {
+    min-height: 100vh;
+}
+
+#references {
+    background-color: black;
+    margin-bottom: 100px;
+    border-radius: 5px;
+}
+
+.title_wrapper {
+    margin: 10px auto;
+}
+
+.summary_wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+main {
+    position: relative;
+}
+.nav_bar {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 5px;
+    background-color: #333;
+}
+
+.link_to_summary_or_refs {
+    margin: 0 10px;
+}
+
+.summary_header, .full_ref_wrapper {
+    width: 100%;
+}
+
+.full_ref_citation {
+    display: inline;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.main_title {
+    margin: 5px auto;
+    width: 300px;
+}
+

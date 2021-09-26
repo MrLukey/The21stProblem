@@ -1,0 +1,42 @@
+.info_fig {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.custom_image {
+    background-color: black;
+}
+
+.info_fig_small {
+    width: 240px;
+}
+
+.info_fig_large {
+    width: 340px;
+}
+
+.info_fig_image_small {
+    width: 220px;
+}
+
+.info_fig_image_large {
+    width: 320px;
+}
+
+.info_fig_caption, .custom_info_fig_caption{
+    margin: 0 10px;
+    padding: 2px;
+}
+
+.info_fig_caption {
+    color: black;
+}
+
+.custom_info_fig_caption {
+    color: white;
+}
