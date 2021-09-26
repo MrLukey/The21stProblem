@@ -68,7 +68,7 @@ main {
     margin: 0 10px;
 }
 
-.summary_header, .full_ref_wrapper {
+.summary_header, .full_ref_wrapper, .main_title {
     width: 100%;
 }
 
@@ -76,10 +76,5 @@ main {
     display: inline;
     margin-left: 5px;
     margin-bottom: 20px;
-}
-
-.main_title {
-    margin: 0 auto;
-    width: 95%;
 }
 

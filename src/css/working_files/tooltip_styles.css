@@ -9,22 +9,6 @@
     text-align: center;
 }
 
-.arrow {
-    position: relative;
-    z-index: 998;
-    clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    width: 20px;
-    height: 10px;
-}
-
-.ref_arrow {
-    left: 50px;
-}
-
-.info_arrow {
-    /*left: 90%;*/
-}
-
 [role="tooltip"] {
     display: none;
     position: absolute;
@@ -34,7 +18,7 @@
 
 .ref_tooltip {
     width: 120px;
-    top: 20px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
