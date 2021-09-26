@@ -1,4 +1,24 @@
 .gg-chevron-double-down {
+    box-sizing: border-box;
     position: relative;
-    top: 25vh;
+    display: block;
+    width: 44px;
+    height: 44px
+}
+.gg-chevron-double-down::after,
+.gg-chevron-double-down::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-bottom: 10px solid;
+    border-right: 10px solid;
+    transform: rotate(45deg);
+    left: 7px;
+    top: 3px
+}
+.gg-chevron-double-down::after {
+    top: 20px
 }
