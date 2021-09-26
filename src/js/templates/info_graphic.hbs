@@ -1,8 +1,8 @@
-<figure class="info_fig info_fig_{{display_size}}{{#if custom_image}} custom_image{{/if}}">
+<figure class="info_fig{{#if custom_image}} custom_image{{/if}}">
 {{#if needs_title}}
     <h4 class="info_fig_title">{{alt}}</h4>
 {{/if}}
-    <img class="info_fig_image_{{display_size}}" src="{{path}}" alt="{{alt}}">
+    <img class="info_fig_image" src="{{path}}" alt="{{alt}}">
 {{#if has_extra_info}}
     <p class="{{#unless custom_image}}info_fig_caption{{/unless}}{{#if custom_image}}custom_info_fig_caption{{/if}}">{{extra_info}}</p>
 {{/if}}

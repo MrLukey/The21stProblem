@@ -6,6 +6,11 @@
     padding: 5px;
     background-color: white;
     border-radius: 10px;
+    width: 100%;
+}
+
+.info_fig_image {
+    width: 90%;
 }
 
 .custom_image {
