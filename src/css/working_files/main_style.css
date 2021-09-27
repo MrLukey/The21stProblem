@@ -66,10 +66,15 @@ main {
 
 .link_to_summary_or_refs {
     margin: 0 10px;
+    text-align: center;
 }
 
-.summary_header, .full_ref_wrapper, .main_title {
+.summary_header, .full_ref_wrapper, .main_title, .section_header, .link_to_summary_or_refs {
     width: 100%;
+}
+
+.summary_header {
+    text-align: left;
 }
 
 .full_ref_citation {
