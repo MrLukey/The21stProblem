@@ -100,7 +100,7 @@ const SolutionPage = () => {
                 buttonOneHref="#"
                 buttonTwoText="The New World"
                 buttonTwoVariant="light"
-                buttonTwoHref="/solution" />
+                buttonTwoHref="/new-world" />
         </section>
     )
 }

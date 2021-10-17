@@ -4,6 +4,7 @@ import SiteNav from "./Components/SiteNav";
 import CoverPage from "./Components/CoverPage/CoverPage";
 import ProblemPage from "./Components/ProblemPage/ProblemPage";
 import SolutionPage from "./Components/SolutionPage/SolutionPage";
+import NewWorldPage from "./Components/NewWorldPage/NewWorldPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
               <Route exact path="/" component={CoverPage} />
               <Route path="/problem" component={ProblemPage} />
               <Route path="/solution" component={SolutionPage} />
+              <Route path="/new-world" component={NewWorldPage} />
           </Switch>
       </Router>
   )
