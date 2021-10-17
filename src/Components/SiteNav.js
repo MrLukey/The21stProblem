@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
+import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
 
 const SiteNav = () => {
     return (
