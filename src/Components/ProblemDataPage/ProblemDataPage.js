@@ -1,6 +1,7 @@
 import React from "react";
 import InfoGraphicCard from "../InfoGraphicCard";
 import infoGraphicData from './problemDataInfoGraphics.json';
+import CallToActionHero from "../Heroes/CallToActionHero";
 
 const ProblemDataPage = () => {
     return (
@@ -18,6 +19,14 @@ const ProblemDataPage = () => {
                         linkText={infoGraphic.linkText} />
                 )
             }
+            <CallToActionHero
+                title="More Info"
+                buttonOneText="Solution Data"
+                buttonOneVariant="secondary"
+                buttonOneHref="solution-data"
+                buttonTwoText="References"
+                buttonTwoVariant="light"
+                buttonTwoHref="references" />
         </section>
     )
 }
