@@ -40,17 +40,18 @@ const ProblemPage = () => {
                 Earth can occur when the atmosphere lacks greenhouse gases, and the planet becomes entombed in a ball of ice
                 for millions of years. Greenhouse Earth is the default, making up 85% of Earth's history. The planet is ice
                 free, surface sea temperatures ranging from 28°C in the tropics to 0°C in the poles, and the atmopshere is
-                rich in methane. Icehouse Earth is the one we know, a rare goldilocks state where carbon levels are just right
-                for ice to cover the poles, cooling the Earth just enough to make conditions perfect for us. The states are
-                stable because it takes a lot of energy to change from one to another, but just like pushing a ball over a hill,
-                once enough energy has been put into the system, natural forces take over, leading to a runaway effect."
+                rich in methane and water vapour. Icehouse Earth is the one we know, a rare goldilocks state where carbon
+                levels are just right for ice to cover the poles, cooling the Earth just enough to make conditions perfect
+                for us. The states are stable because it takes a lot of energy to change from one to another, but just like
+                pushing a ball over a hill, once enough energy has been put into the system, natural forces take over,
+                leading to a runaway effect."
                 image="https://ars.els-cdn.com/content/image/1-s2.0-S0262407908615523-fx1.jpg"/>
             <LeftImageHero
                 title="However our future may be without precedent in the last half a billion years"
                 info="The evolution of Earth’s climate is largely driven by variations in solar irradiance and atmospheric
                 content: how much energy the Sun produces and what percentage of that energy is absorbed by the Earth.
-                Since the last period of greenhouse Earth, the Sun has got hotter, so the same atmosphere today would
-                lead to even greater temperatures than seen in geological records."
+                Since the last period of greenhouse Earth, the Sun has increased in temperature, so the same atmosphere
+                today would lead to even greater temperatures than seen in geological records."
                 image="assets/images/desert2.jpg"/>
             <RightImageHero
                 title="The threat is existential, unpredictable and developing at a rapid pace"
@@ -69,9 +70,8 @@ const ProblemPage = () => {
             <CallToActionHero
                 title="Time has run out"
                 info="Adapt or die is the mantra of Earth once again. If we do not respond in a proportional manner then
-                our destiny is written in the fossil records. However, the risk is only equal to the opportunity. It is
-                time to take responsibility, accept our role as stewards of Spaceship Earth and build a world that has
-                never before been possible."
+                our destiny is written in the fossil records. However, solutions exist today that can both halt degradation
+                and protect us from catastrophic environmental changes."
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"
                 buttonOneHref="#"

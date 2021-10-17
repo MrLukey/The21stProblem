@@ -9,9 +9,9 @@ const SiteNav = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Summary</Nav.Link>
-                        <Nav.Link href="#link">References</Nav.Link>
-                        <NavDropdown title="Key Concepts" id="basic-nav-dropdown">
+                        <Nav.Link href="/problem">The Problem</Nav.Link>
+                        <Nav.Link href="/solution">The Solution</Nav.Link>
+                        <NavDropdown title="More Info" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Existential Threat</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Opportunities</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Something Else</NavDropdown.Item>

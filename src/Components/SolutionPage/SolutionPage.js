@@ -48,7 +48,7 @@ const SolutionPage = () => {
                 title="Advanced nuclear is the only viable energy solution"
                 info="Unfortunately, we have done enough damage to make relying on renewable energy a dangerous proposition.
                 As extreme weather becomes more common, power systems that are exposed to the elements will become proportionally
-                less reliable and costly to maintain. Nuclear energy is clean, more productive and inherently decoupled
+                less reliable and more costly to maintain. Nuclear energy is clean, more productive and inherently decoupled
                 from the health of the environment. Rather than using fuel rods and running the risk of meltdown, modern
                 reactors can use liquid fuels to generate electricity. If the plant suffers a catastrophic loss of power,
                 such as in Fukushima, a small freeze plug will melt and the fuel will drain safely into a holding tank.
@@ -62,12 +62,12 @@ const SolutionPage = () => {
                 title="Full electrification is needed"
                 info="A common and misleading statistic often quoted in the media is the proportion of electric
                 energy that comes from green sources, e.g 43.5% in the UK 2021. However, the vast majority of energy
-                consumed is not in the form of electricity, but carbon based fuels, meaning that of total energy demand,
+                consumed is not in the form of electricity, it's carbon based fuels, meaning that of total energy demand
                 only 6.6% is green. Not only do we need to immediately curtail the use of carbon based fuels, but we need to
                 convert technology to consume electricity and increase green generation significantly. The land requirements
                 for full electrification via renewables is another reason why nuclear must come to be seen as our best
                 option for solving the climate crisis, providing stable generation, independent from the state of the
-                environment, in quantities enough to cater for vastly increased demand."
+                environment, in quantities capable of satisfying vastly increased demand."
                 image="assets/images/lightning.jpg"
                 alt="" />
             <RightImageHero
@@ -84,11 +84,11 @@ const SolutionPage = () => {
                 alt="" />
             <LeftImageHero
                 title="SoC will ensure long term prosperity"
-                info="Separation of Concerns will provide the global stability required to begin restoration of the Earth.
-                If we do not change the overall architecture of the global economy, and supply chains are significantly
+                info="If we do not change the overall architecture of the global economy, and supply chains are significantly
                 disrupted from extreme weather and climate change, war is likely to break out over increasingly scarce
                 resources. If this happens, the chance to work collectively on the arduous task of restoration will be
-                gone, and we will lose our home."
+                gone, and we will lose our home. Separation of Concerns will provide the global stability required to begin
+                restoration of the Earth."
                 image="assets/images/earthFromSpace.jpg"
                 alt="" />
             <CallToActionHero
