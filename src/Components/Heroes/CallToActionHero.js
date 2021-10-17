@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap";
 
 const CallToActionHero = (props) => {
     return (
-        <div className="container bg-dark text-center col-xxl-8 px-4 py-5">
+        <div className={"container text-center col-xxl-8 px-4 py-5 " + props.bg}>
             <h1 className="display-4 fw-bold text-white">{props.title}</h1>
             <div className="col-lg-6 mx-auto">
                 <p className="lead text-white">{props.info}</p>
