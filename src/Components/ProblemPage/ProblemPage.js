@@ -66,7 +66,6 @@ const ProblemPage = () => {
                 tipping happens. The stability and resilience of our planet is in peril. International action - not just
                 words - must reflect this."
                 image="assets/images/doTheMaths.png" />
-
         </section>
     )
 }
