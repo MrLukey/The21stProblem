@@ -77,7 +77,7 @@ const ProblemPage = () => {
                 buttonOneHref="#"
                 buttonTwoText="The Solution"
                 buttonTwoVariant="light"
-                buttonTwoHref="#"
+                buttonTwoHref="/solution"
             />
         </section>
     )

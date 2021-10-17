@@ -3,6 +3,7 @@ import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
 import SiteNav from "./Components/SiteNav";
 import CoverPage from "./Components/CoverPage/CoverPage";
 import ProblemPage from "./Components/ProblemPage/ProblemPage";
+import SolutionPage from "./Components/SolutionPage/SolutionPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Switch>
               <Route exact path="/" component={CoverPage} />
               <Route path="/problem" component={ProblemPage} />
+              <Route path="/solution" component={SolutionPage} />
           </Switch>
       </Router>
   )
