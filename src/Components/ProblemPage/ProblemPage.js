@@ -70,12 +70,14 @@ const ProblemPage = () => {
                 title="Time has run out"
                 info="Adapt or die is the mantra of Earth once again. If we do not respond in a proportional manner then
                 our destiny is written in the fossil records. However, the risk is only equal to the opportunity. It is
-                time to take responsibility, accept our role as steward of Spaceship Earth and build a world that has
+                time to take responsibility, accept our role as stewards of Spaceship Earth and build a world that has
                 never before been possible."
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"
+                buttonOneHref="#"
                 buttonTwoText="The Solution"
                 buttonTwoVariant="light"
+                buttonTwoHref="#"
             />
         </section>
     )

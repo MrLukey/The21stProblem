@@ -8,8 +8,8 @@ const CallToActionHero = (props) => {
             <div className="col-lg-6 mx-auto">
                 <p className="lead text-white">{props.info}</p>
                 <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                    <Button variant={props.buttonOneVariant}>{props.buttonOneText}</Button>
-                    <Button variant={props.buttonTwoVariant}>{props.buttonTwoText}</Button>
+                    <Button variant={props.buttonOneVariant} href={props.buttonOneHref}>{props.buttonOneText}</Button>
+                    <Button variant={props.buttonTwoVariant} href={props.buttonTwoHref}>{props.buttonTwoText}</Button>
                 </div>
             </div>
         </div>
