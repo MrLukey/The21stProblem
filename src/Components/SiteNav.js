@@ -17,7 +17,7 @@ const SiteNav = () => {
                             <NavDropdown.Item href="solution-data">Solution Data</NavDropdown.Item>
                             <NavDropdown.Item href="#">New World Data</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#">References</NavDropdown.Item>
+                            <NavDropdown.Item href="references">References</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

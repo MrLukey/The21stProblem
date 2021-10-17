@@ -7,6 +7,7 @@ import SolutionPage from "./Components/SolutionPage/SolutionPage";
 import NewWorldPage from "./Components/NewWorldPage/NewWorldPage";
 import ProblemDataPage from "./Components/ProblemDataPage/ProblemDataPage";
 import SolutionDataPage from "./Components/SolutionDataPage/SolutionDataPage";
+import ReferencesPage from "./Components/ReferencesPage/ReferencesPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/solution" component={SolutionPage} />
               <Route path="/solution-data" component={SolutionDataPage} />
               <Route path="/new-world" component={NewWorldPage} />
+              <Route path="/references" component={ReferencesPage} />
           </Switch>
       </Router>
   )
