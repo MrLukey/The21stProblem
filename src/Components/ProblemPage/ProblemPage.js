@@ -74,10 +74,10 @@ const ProblemPage = () => {
                 and protect us from catastrophic environmental changes."
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"
-                buttonOneHref="#"
+                buttonOneHref="problem-data"
                 buttonTwoText="The Solution"
                 buttonTwoVariant="light"
-                buttonTwoHref="/solution"
+                buttonTwoHref="solution"
             />
         </section>
     )

@@ -97,10 +97,10 @@ const SolutionPage = () => {
                 our own survival, the result will be a world never before made possible on Earth."
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"
-                buttonOneHref="#"
+                buttonOneHref="solution-data"
                 buttonTwoText="The New World"
                 buttonTwoVariant="light"
-                buttonTwoHref="/new-world" />
+                buttonTwoHref="new-world" />
         </section>
     )
 }
