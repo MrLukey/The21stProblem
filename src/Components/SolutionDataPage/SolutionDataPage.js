@@ -3,7 +3,12 @@ import InfoGraphicCard from "../InfoGraphicCard";
 
 const SolutionDataPage = () => {
     return (
-        <InfoGraphicCard />
+        <section className="bg-dark">
+            <InfoGraphicCard
+                text=""
+                image=""
+                alt="" />
+        </section>
     )
 }
 

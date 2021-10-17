@@ -33,7 +33,7 @@ const ProblemPage = () => {
                 continuously feedback on themselves and each other, causing even more climate change. The impact of this
                 cannot be understated. We may be witnessing a shift of the Earth System so profound that the majority of
                 species alive today will not survive it."
-                image="assets/images/tippingPointsMap.jpg"/>
+                image="assets/images/4_tippingPointsMap.jpg"/>
             <RightImageHero
                 title="Ancient climate records imply a potential for warming of 6-14°C"
                 info="The Earth can exist for long periods in 3 stable states; snowball, icehouse and greenhouse. Snowball
