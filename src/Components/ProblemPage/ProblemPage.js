@@ -1,7 +1,7 @@
 import React from "react";
 import RightImageHero from "../Heroes/RightImageHero";
 import LeftImageHero from "../Heroes/LeftImageHero";
-import CenterImageHero from "../Heroes/CenterImageHero";
+import CallToActionHero from "../Heroes/CallToActionHero";
 
 const ProblemPage = () => {
     return (
@@ -61,11 +61,22 @@ const ProblemPage = () => {
                 image="assets/images/drowning.jpg" />
             <LeftImageHero
                 title="Do The Maths - this is an emergency"
-                info="There is no time to wait for a cultural or economic shift toward sustainability. The intervention time left to prevent tipping could already have shrunk towards zero, whereas the reaction
-                time to achieve net zero emissions is 30 years at best. Hence we might already have lost control of whether
-                tipping happens. The stability and resilience of our planet is in peril. International action - not just
-                words - must reflect this."
+                info="There is no time to wait for a cultural or economic shift toward sustainability. The intervention
+                time left to prevent tipping could already have shrunk towards zero, whereas the reaction time to achieve
+                net zero emissions is 30 years at best. Hence we might already have lost control of whether tipping happens.
+                The stability and resilience of our planet is in peril. International action - not just words - must reflect this."
                 image="assets/images/doTheMaths.png" />
+            <CallToActionHero
+                title="Time has run out"
+                info="Adapt or die is the mantra of Earth once again. If we do not respond in a proportional manner then
+                our destiny is written in the fossil records. However, the risk is only equal to the opportunity. It is
+                time to take responsibility, accept our role as steward of Spaceship Earth and build a world that has
+                never before been possible."
+                buttonOneText="More Info"
+                buttonOneVariant="secondary"
+                buttonTwoText="The Solution"
+                buttonTwoVariant="light"
+            />
         </section>
     )
 }
