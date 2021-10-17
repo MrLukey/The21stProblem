@@ -1,19 +1,16 @@
 import './App.css';
-import TitleSection from "./Components/TitleSection/TitleSection";
-import ProblemSection from "./Components/ProblemSection/ProblemSection";
-import SiteNav from "./Components/SiteNav/SiteNav";
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+import SiteNav from "./Components/SiteNav";
+import CoverPage from "./Components/CoverPage/CoverPage";
 
 function App() {
   return (
-      <main>
-          <header>
-              <SiteNav />
-          </header>
-          <div>
-            <TitleSection />
-            <ProblemSection />
-          </div>
-      </main>
+      <Router>
+          <SiteNav />
+          <Switch>
+              <Route exact path="/" component={CoverPage} />
+          </Switch>
+      </Router>
   )
 }
 

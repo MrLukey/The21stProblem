@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.text-pt-sans-pro {
+  font-family: pt-sans-pro, sans-serif;
+}
+
+.text-bree {
+  font-family: bree, sans-serif;
+}
