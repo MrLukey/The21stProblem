@@ -18,11 +18,11 @@ const SiteNav = () => {
                         <NavDropdown title="More" id="basic-nav-dropdown">
                             <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>
                             <NavDropdown.Item href="solution-data">Solution Data</NavDropdown.Item>
-                            <NavDropdown.Item href="#">New World Data</NavDropdown.Item>
+                            <NavDropdown.Item href="#" disabled={true}>New World Data</NavDropdown.Item>
                             <NavDropdown.Item href="references">References</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#">About</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Contact</NavDropdown.Item>
+                            <NavDropdown.Item href="#" disabled={true}>About</NavDropdown.Item>
+                            <NavDropdown.Item href="#" disabled={true}>Contact</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

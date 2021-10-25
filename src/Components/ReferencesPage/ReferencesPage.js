@@ -1,6 +1,6 @@
 import React from "react";
 import referenceData from './references.json'
-import ReferenceCard from "../ReferenceCard";
+import ReferenceCard from "../ReferenceCard/ReferenceCard";
 
 const ReferencesPage = () => {
     return (

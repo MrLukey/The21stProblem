@@ -1,5 +1,5 @@
 import React from "react";
-import InfoGraphicCard from "../InfoGraphicCard";
+import InfoGraphicCard from "../InfoGraphicCard/InfoGraphicCard";
 import infoGraphicData from './problemDataInfoGraphics.json';
 import CallToActionHero from "../Heroes/CallToActionHero";
 
