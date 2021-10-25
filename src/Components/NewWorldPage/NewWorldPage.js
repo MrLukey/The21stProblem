@@ -20,21 +20,21 @@ const NewWorldPage = () => {
                 title="We are the great evolver"
                 info="Throughout our history, we have dramatically changed any environment we found ourselves in. This
                 has had a profound impact on the evolution of life on Earth, creating new niches into which species can
-                evolve and increasing the complexity of the environment, forcing species to become more intelligent in
-                order to survive. Something as simple to us as access to cooked food, for others is an evolutionary leap
-                equivalent to hundreds of millions of years. If we break down the ideological wall that separates us from
-                the rest of nature, we can begin to see ourselves as more than just another creature, but as a primary
-                driver of evolution, a producer of intelligent life in the universe."
+                evolve and increasing the complexity of the environment, forcing species to become more intelligent to
+                survive. Something as simple to us as access to cooked food, for others is an evolutionary leap equivalent
+                to hundreds of millions of years. If we break down the ideological wall that separates us from the rest
+                of nature, we can begin to see ourselves as more than just another creature, but as a primary driver of
+                evolution, a producer of intelligent life in the universe."
                 image="assets/images/machuPicchu.jpg"
                 alt="" />
             <RightImageHero
                 title="This is the Anthropocene"
                 info="Few appreciate the significance of naming a geological era after a life form. It means that a
                 living being has attained a power comparable to that which moves mountains, and rips continents apart.
-                The fact we are forced to name this age after ourselves tells us it is time to accept our natural place as
-                architect of Earth, and build a world that benefits all. If you have any doubt that we shall prevail,
-                remember it was only ignorance and greed that led us to this place, imagine what will happen when the
-                rest of humanity joins in the fight."
+                The fact we are forced to name this age after ourselves should tell us one thing: it is time to accept
+                our natural place as architect of Earth, and build a world that benefits all. If you have any doubt that
+                we shall prevail, remember it was only ignorance and greed that led us to this place, imagine what will
+                happen when the rest of humanity joins in the fight."
                 image="assets/images/city.jpg"
                 alt="" />
             <LeftImageHero
@@ -66,14 +66,13 @@ const NewWorldPage = () => {
             <CallToActionHero
                 title="But we must act now"
                 info="This future may be possible, but it is by no means certain. We must set about achieving Separation
-                of Concerns, and redesign civilisation around principles of planetary stewardship."
+                of Concerns, and redesign civilisation around principles of planetary stewardship. This means acting NOW!"
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"
-                buttonOneHref="problem-data"
-                buttonTwoText="The Solution"
+                buttonOneHref="#"
+                buttonTwoText="What To Do Now"
                 buttonTwoVariant="light"
-                buttonTwoHref="solution" />
-
+                buttonTwoHref="what-to-do" />
         </section>
     )
 }
