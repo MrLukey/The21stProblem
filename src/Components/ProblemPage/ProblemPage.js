@@ -14,8 +14,8 @@ const ProblemPage = () => {
             <LeftImageHero
                 title="We consistently underestimate the severity of the situation"
                 info="Both The Paris Agreement and policies for Carbon Neutrality are based on flawed logic. At the time
-                of their invention, carbon budgets were already spent, and carbon neutrality will not halt or diminish the
-                impact of what we have already set in motion."
+                of their invention, carbon budgets were spent, and carbon neutrality will not halt or diminish the impact
+                of what we have already set in motion."
                 image="assets/images/flood2.jpg"/>
             <RightImageHero
                 title="It is likely that climate models have biases that prevent showing irreversible change"
@@ -24,7 +24,7 @@ const ProblemPage = () => {
                 Extreme and unusual weather events, such as a heat dome over North America, therefore come as a surprise.
                 Additionally, cognitive biases in the academic community have prevented exploration of the possibility
                 that a cascade of environmental feedback loops is already in motion, being rejected on the grounds that
-                it may lead "to a sense of helplessness, inadequacy, hopelessness and ultimately disengagement from the issue".'
+                it may "lead to a sense of helplessness, inadequacy, hopelessness and ultimately disengagement from the issue".'
                 image="assets/images/twister.jpg"
                 />
             <LeftImageHero
@@ -38,13 +38,12 @@ const ProblemPage = () => {
                 title="Ancient climate records imply a potential for warming of 6-14°C"
                 info="The Earth can exist for long periods in 3 stable states; snowball, icehouse and greenhouse. Snowball
                 Earth can occur when the atmosphere lacks greenhouse gases, and the planet becomes entombed in a ball of ice
-                for millions of years. Greenhouse Earth is the default, making up 85% of Earth's history. The planet is ice
-                free, surface sea temperatures ranging from 28°C in the tropics to 0°C in the poles, and the atmopshere is
-                rich in methane and water vapour. Icehouse Earth is the one we know, a rare goldilocks state where carbon
-                levels are just right for ice to cover the poles, cooling the Earth just enough to make conditions perfect
-                for us. The states are stable because it takes a lot of energy to change from one to another, but just like
-                pushing a ball over a hill, once enough energy has been put into the system, natural forces take over,
-                leading to a runaway effect."
+                for millions of years. Icehouse Earth is the one we know, a rare goldilocks state where greenhouse gases are
+                at the right concentrations for ice to cover the poles, cooling the Earth just enough to make conditions perfect
+                for us. But greenhouse Earth is the default, making up 85% of Earth's history. The planet is ice free,
+                surface sea temperatures ranging from 28°C in the tropics to 0°C in the poles, and the atmosphere is rich
+                in methane and water vapour. The fact greenhouse Earth is so common implies it is much easier to transition
+                in to than out of."
                 image="https://ars.els-cdn.com/content/image/1-s2.0-S0262407908615523-fx1.jpg"/>
             <LeftImageHero
                 title="However our future may be without precedent in the last half a billion years"
@@ -62,15 +61,15 @@ const ProblemPage = () => {
                 image="assets/images/drowning.jpg" />
             <LeftImageHero
                 title="Do The Maths - this is an emergency"
-                info="There is no time to wait for a cultural or economic shift toward sustainability. The intervention
-                time left to prevent tipping could already have shrunk towards zero, whereas the reaction time to achieve
-                net zero emissions is 30 years at best. Hence we might already have lost control of whether tipping happens.
-                The stability and resilience of our planet is in peril. International action - not just words - must reflect this."
+                info='"The intervention time left to prevent tipping could have already shrunk towards zero, whereas the
+                reaction time to achieve net zero emissions is 30 years at best. Hence we might have already lost control
+                of whether tipping happens. The stability and resilience of our planet is in peril. International action
+                - not just words - must reflect this."'
                 image="assets/images/doTheMaths.png" />
             <CallToActionHero
                 title="Time has run out"
                 info="Adapt or die is the mantra of Earth once again. If we do not respond in a proportional manner then
-                our destiny is written in the fossil records. However, solutions exist today that can both halt degradation
+                our destiny is written in the fossil record. However, solutions exist today that can both halt degradation
                 and protect us from catastrophic environmental changes."
                 buttonOneText="More Info"
                 buttonOneVariant="secondary"

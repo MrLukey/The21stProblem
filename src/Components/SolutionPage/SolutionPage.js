@@ -17,7 +17,7 @@ const SolutionPage = () => {
                 title="We must decouple"
                 info="The root of the problem is a tight coupling between human activity and environmental health: human
                 activity depends on environmental health and environmental health depends on human activity. We must decouple
-                this relationship, allowing human activity to continue independent of environmental health, and environmental
+                this relationship, allowing human activity to continue independent of environmental conditions, and environmental
                 health to recover without impediment from human activity."
                 image="https://www.nasa.gov/images/content/386905main_moorhead_tm5_2009253.jpg"
                 alt="" />
@@ -34,35 +34,35 @@ const SolutionPage = () => {
             <LeftImageHero
                 title="Vertical farms must become the default"
                 info="Vertical agriculture requires a fraction of the land, 5% of the water and, by allowing for artificial
-                growth cycles, produces vastly more food compared to traditional methods. Because farms
-                are contained, they are inherently protected from droughts, storms and insects, so food production is
-                not dependent on predictable seasons or good weather, and the lack of competition from other species means
-                no pesticides are required at all. They can be built in populated areas, so the need for preservation,
-                packaging and transport is also removed, making for much healthier produce. Conversion to vertical farming
-                will end the genocide of insects, halt the culling of forests and free enough land to completely restore
-                the wild world of old. They also offer long lasting resilience to climate change, ensuring that no matter
-                the state of the environment, humanity will have food to eat."
+                growth cycles, produces vastly more food compared to traditional methods. Because farms are contained,
+                they are inherently protected from drought, storms and insects, so food production is not dependent on
+                predictable seasons or good weather, and the lack of competition from other species means no pesticides
+                are required at all. They can be built in populated areas, so the need for preservation, packaging and
+                transport is also removed, making for much healthier produce. Conversion to vertical farming will end the
+                genocide of insects, halt the culling of forests and free enough land to completely restore the wilds of
+                old. They also offer long lasting resilience to climate change, ensuring that no matter the state of the
+                environment, humanity will have food to eat."
                 image="https://www.usda.gov/sites/default/files/ocs-vertical-farming-blog-081418.jpg"
                 alt="" />
             <RightImageHero
-                title="Advanced nuclear is the only viable energy solution"
+                title="Advanced nuclear is the most reliable energy solution"
                 info="Unfortunately, we have done enough damage to make relying on renewable energy a dangerous proposition.
                 As extreme weather becomes more common, power systems that are exposed to the elements will become proportionally
                 less reliable and more costly to maintain. Nuclear energy is clean, more productive and inherently decoupled
                 from the health of the environment. Rather than using fuel rods and running the risk of meltdown, modern
                 reactors can use liquid fuels to generate electricity. If the plant suffers a catastrophic loss of power,
                 such as in Fukushima, a small freeze plug will melt and the fuel will drain safely into a holding tank.
-                This allows small, modular reactors to be built close to where power is needed, removing the need for
-                sprawling grid infrastructure. Breeders can convert nuclear waste into fuel, massively reducing what is
-                eventually sent to storage, and what remains can be geologically disposed of, ensuring the material doesn't
-                surface for millions of years."
+                This allows small, modular reactors to be built close to where power is consumed, reducing waste and removing
+                the need for sprawling power lines. Breeders can convert nuclear waste into fuel, massively reducing what
+                is eventually sent to storage, and what remains can be geologically disposed of, ensuring the material
+                doesn't surface for millions of years."
                 image="https://images.ctfassets.net/cnu0m8re1exe/4TQUSloIhxnH3vIdcAYe2M/cbc94db486f5675131dd095c427f08b4/G-nuclear10-molten-salt-reactor.png"
                 alt="" />
             <LeftImageHero
                 title="Full electrification is needed"
                 info="A common and misleading statistic often quoted in the media is the proportion of electric
-                energy that comes from green sources, e.g 43.5% in the UK 2021. However, the vast majority of energy
-                consumed is not in the form of electricity, it's carbon based fuels, meaning that of total energy demand
+                energy that comes from green sources, e.g 43% in the UK 2021. However, the vast majority of energy
+                consumed is not in the form of electricity, it's carbon based fuels, meaning that of total UK energy demand
                 only 6.6% is green. Not only do we need to immediately curtail the use of carbon based fuels, but we need to
                 convert technology to consume electricity and increase green generation significantly. The land requirements
                 for full electrification via renewables is another reason why nuclear must come to be seen as our best
@@ -75,20 +75,20 @@ const SolutionPage = () => {
                 info="As well as greenhouse gasses, aerosols and pollutants, we must strictly manage our influence on the
                 cycles of nitrogen, phosphorus and water in the environment. These are critical for ensuring fertility of
                 the land, and have been hugely disrupted by human activity thus far. In practice, we must come to see waste
-                not as an acceptable byproduct of activity, but as a cultural failure of unacceptable proportions. The majority
-                of products must be digestible by a form of life or natural process, allowing our waste to become feed for other
-                species or deteriorate harmlessly into the environment. For complex items that require heavy elements and
-                dangerous chemicals, all measures must be taken to ensure that recoverable material is recovered and toxic
-                waste minimised and properly stored."
+                not as an acceptable byproduct of activity, but as a useful resource for other endeavors. Products must be
+                designed for longevity, ease of upgrade and user maintenance, and waste must be digestible by a form of
+                life or natural process, allowing it to become feed for other species or deteriorate harmlessly into the
+                environment."
                 image="assets/images/forest2.jpg"
                 alt="" />
             <LeftImageHero
                 title="SoC will ensure long term prosperity"
-                info="If we do not change the overall architecture of the global economy, and supply chains are significantly
+                info="If we do not change the architecture of the global economy, and supply chains are significantly
                 disrupted from extreme weather and climate change, war is likely to break out over increasingly scarce
                 resources. If this happens, the chance to work collectively on the arduous task of restoration will be
                 gone, and we will lose our home. Separation of Concerns will provide the global stability required to begin
-                restoration of the Earth."
+                restoration of Earth, ensuring that every nation has access to food and energy even as global conditions
+                deteriorate."
                 image="assets/images/earthFromSpace.jpg"
                 alt="" />
             <CallToActionHero

@@ -1,6 +1,6 @@
 import './App.css';
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
-import SiteNav from "./Components/SiteNav";
+import SiteNav from "./Components/SiteNav/SiteNav";
 import CoverPage from "./Components/CoverPage/CoverPage";
 import ProblemPage from "./Components/ProblemPage/ProblemPage";
 import SolutionPage from "./Components/SolutionPage/SolutionPage";
