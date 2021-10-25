@@ -3,10 +3,13 @@
 .idea/
 /old-code/assets/.DS_Store
 /old-code/assets/images/.DS_Store
-/public/assets/InfoGraphics
+/client/public/assets/InfoGraphics
+
+# vendor code
+/client/node_modules
+/api/node_modules
 
 # dependencies
-/node_modules
 /.pnp
 .pnp.js
 

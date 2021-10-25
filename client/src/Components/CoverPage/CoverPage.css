@@ -1,0 +1,16 @@
+#cover {
+    height: calc(100vh - 56px);
+    height: -webkit-calc(100% - 65px); /* google, safari */
+    height: -moz-calc(100% - 65px); /* firefox */
+    background-image: url("fire.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    color: grey;
+}
+
+@media (min-width: 700px){
+    #cover {
+        background-image: url("forestFire.jpg");
+    }
+}
