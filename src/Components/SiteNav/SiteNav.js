@@ -13,7 +13,7 @@ const SiteNav = () => {
                         <Nav.Link href="problem">The Problem</Nav.Link>
                         <Nav.Link href="solution">The Solution</Nav.Link>
                         <Nav.Link href="new-world">A New World</Nav.Link>
-                        <Nav.Link href="new-world">What To Do Now</Nav.Link>
+                        <Nav.Link href="what-to-do">What To Do Now</Nav.Link>
                         <a className="nav-link" href={pdfVersion} download="the-21st-problem.pdf">Download PDF</a>
                         <NavDropdown title="More" id="basic-nav-dropdown">
                             <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>
