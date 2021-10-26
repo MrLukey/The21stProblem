@@ -55,18 +55,21 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
 
 const validatePageToLog = body('page', 'Hacking Logged').isString().matches('^([a-z]+_?[a-z]*_?[a-z]*)').trim().escape()
 app.post('/log-page-load', validatePageToLog, async (request, response) => {
-    const connection = await getDBConnection()
     const todaysDate = new Date().toLocaleDateString('en-GB')
     const errors = validationResult(request)
     if (!errors.isEmpty()) {
+        const connection = await getDBConnection()
         await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
         await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
+        connection.end()
         return response.status(422).json({errors: errors.array()})
     }
     const pageToLog = request.body.page
     try {
+        const connection = await getDBConnection()
         await insertActivityRowForTodayIfDoesNotExist(connection, 'site_activity', todaysDate)
         await connection.query(`UPDATE site_activity SET ` + pageToLog + ` = ` + pageToLog + ` + 1 WHERE date = '` + todaysDate + `';`)
+        connection.end()
         return response.status(200)
     } catch (exception){
         return response.status(500)
