@@ -15,7 +15,7 @@ const SolutionDataPage = () => {
             })
         }
         fetch(url, requestOptions)
-            .then(response => console.log(response))
+            .then(response => response)
             .catch(error => console.log(error))
     }, [])
 

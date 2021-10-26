@@ -15,7 +15,7 @@ const WhatToDoPage = () => {
             })
         }
         fetch(url, requestOptions)
-            .then(response => console.log(response))
+            .then(response => response)
             .catch(error => console.log(error))
     }, [])
 
@@ -24,7 +24,7 @@ const WhatToDoPage = () => {
             <RightImageHero
                 title="Leaders & influencers"
                 info="ACT NOW! If you are in a position of power, whether it be political or social, you have the most
-                important job. Think deeply on what's important in your life. Whether it's family or fame, money or power,
+                important job. Think deeply on what's important in your life, whether it's family or fame, money or power,
                 achieving incredible feats or just having some fun, all reasons lead to the same conclusion; we must
                 radically change course to preserve what we love. You must do everything you can to push an agenda of
                 global stewardship, promoting and investing in the technologies that will ensure our long term survival.
@@ -40,7 +40,7 @@ const WhatToDoPage = () => {
                 talk seriously about cascade scenarios, about a transition to a greenhouse Earth and what that would mean
                 for humanity. We also need you to recommend technologies, laws and social campaigns that offer solutions
                 now, instead of sitting on the fence and preserving your objectivity. Do not shy away from your feelings,
-                you cannot let your scientific integrity stand in the way of our survival. When you are inevitably
+                you must not let your scientific integrity stand in the way of our survival. When you are inevitably
                 labelled as an alarmist, remember it is better to be wrong and face judgement, than be right and face
                 extinction."
                 image="assets/images/scientists.jpg"
@@ -53,9 +53,9 @@ const WhatToDoPage = () => {
                 No matter your profession, no matter your values, you are important; you have skills that are needed. You
                 must grasp the issue, and transition through denial and despair to find new hope. Make your voice heard,
                 use your time and resources to exert pressure on leadership. Write letters, not emails or tweets but
-                physical letters, expressing how you feel now and how you will feel when freezing, starving, and
+                physical letters, describing how you feel now and how you will feel when freezing, starving, and
                 struggling for air. Express your love for your family, your fear for their life, your hopes for the
-                future and what they can do to secure them. Whether they be a government, a company or an individual,
+                future and what can done to secure them. Whether they be a government, a company or an individual,
                 you must not let another decide your fate without first considering you."
                 image="assets/images/climateProtest.jpg"
                 alt="" />
