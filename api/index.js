@@ -27,6 +27,20 @@ async function getDBConnection() {
     })
 }
 
+async function insertActivityRowForTodayIfDoesNotExist(connection, table_name, todaysDate) {
+    try {
+        const activityRow = await connection.query(`SELECT id FROM ` + table_name + ` WHERE date = '` + todaysDate + `';`)
+        if (activityRow.length === 0){
+            await connection.query(`INSERT INTO ` + table_name + ` (date) VALUES ('` + todaysDate + `')`)
+        }
+        return true;
+    } catch (exception){
+        return false;
+    }
+}
+
+
+
 const validateSignUp = [
     body('name').isString().trim().escape(),
     body('email', 'Please enter an e-mail address').isEmail().trim().escape()
@@ -39,19 +53,23 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
     }
 })
 
-app.post('/log-page-load', async (request, response) => {
-    const pageToLog = request.body.page
+const validatePageToLog = body('page', 'Hacking Logged').isString().matches('^([a-z]+_?[a-z]*_?[a-z]*)').trim().escape()
+app.post('/log-page-load', validatePageToLog, async (request, response) => {
     const connection = await getDBConnection()
-    const sqlQuery =
-        `UPDATE page_loads
-        SET ` + pageToLog + ` = ` + pageToLog + ` + 1
-        WHERE id = 1;`
+    const todaysDate = new Date().toLocaleDateString('en-GB')
+    const errors = validationResult(request)
+    if (!errors.isEmpty()) {
+        await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
+        await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
+        return response.status(422).json({errors: errors.array()})
+    }
+    const pageToLog = request.body.page
     try {
-        connection.query(sqlQuery)
-        response.sendStatus(200)
+        await insertActivityRowForTodayIfDoesNotExist(connection, 'site_activity', todaysDate)
+        await connection.query(`UPDATE site_activity SET ` + pageToLog + ` = ` + pageToLog + ` + 1 WHERE date = '` + todaysDate + `';`)
+        return response.status(200)
     } catch (exception){
-        console.log(exception)
-        response.sendStatus(500)
+        return response.status(500)
     }
 })
 
