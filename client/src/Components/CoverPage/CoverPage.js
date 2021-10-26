@@ -1,10 +1,25 @@
-import React from "react"
+import React, {useEffect} from "react"
 import Button from "react-bootstrap/Button";
 import "./CoverPage.css"
 import "./forestFire.jpg"
 import "./fire.jpg"
 
 const CoverPage = () => {
+
+    useEffect(() => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'cover'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
+    }, [])
+
     return (
         <div className="d-flex flex-column justify-content-center align-items-center text-center p-5 text-light" id="cover">
             <main role="main">

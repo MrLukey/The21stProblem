@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import InfoGraphicCard from "../InfoGraphicCard/InfoGraphicCard";
 import CallToActionHero from "../Heroes/CallToActionHero";
 import infoGraphicData from './solutionDataInfoGraphics.json'
 
 const SolutionDataPage = () => {
+
+    useEffect(() => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'solution_data'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
+    }, [])
+
     return (
         <section className="bg-black">
             {

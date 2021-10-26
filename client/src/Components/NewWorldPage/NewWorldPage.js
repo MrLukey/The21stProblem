@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import RightImageHero from "../Heroes/RightImageHero";
 import LeftImageHero from "../Heroes/LeftImageHero";
 import CallToActionHero from "../Heroes/CallToActionHero";
 
 const NewWorldPage = () => {
+
+    useEffect(() => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'new_world'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
+    }, [])
+
     return (
         <section className="bg-dark">
             <RightImageHero
