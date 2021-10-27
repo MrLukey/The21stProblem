@@ -69,7 +69,7 @@ const WhatToDoPage = () => {
                 buttonOneHref="#"
                 buttonTwoText="Sign Up"
                 buttonTwoVariant="light"
-                buttonTwoHref="#" />
+                buttonTwoHref="sign-up" />
         </section>
     )
 }
