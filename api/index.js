@@ -60,10 +60,11 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
     const todaysDate = new Date().toLocaleDateString('en-GB')
     try {
         const connection = await getDBConnection()
-        await connection.query(`INSERT INTO sign_ups (first_name, last_name, email, profession, reason_for_joining, date_joined) VALUES ('`
+        await connection.query(`INSERT INTO sign_ups (first_name, last_name, email, residence, profession, reason_for_joining, date_joined) VALUES ('`
             + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
-            + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.profession) + `', '`
-            + capitaliseFirstLetter(request.body.reasonForJoining) + `', '` + todaysDate + `');`)
+            + `', '` + request.body.email + `', '` + request.body.placeOfResidence + `', '`
+            + capitaliseFirstLetter(request.body.profession) + `', '` + capitaliseFirstLetter(request.body.reasonForJoining)
+            + `', '` + todaysDate + `');`)
         response.sendStatus(200)
     } catch (exception){
         if (exception.sqlState === '23000'){
