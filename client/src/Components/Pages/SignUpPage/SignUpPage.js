@@ -12,6 +12,7 @@ const SignUpPage = () => {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
+    const [allCountries, setAllCountries] = useState([])
     const [placeOfResidence, setPlaceOfResidence] = useState('')
     const [profession, setProfession] = useState('')
     const [professionDetailsDisabled, setProfessionDetailsDisabled] = useState(true)
@@ -66,7 +67,8 @@ const SignUpPage = () => {
 
     const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName}
     const emailProps = {email: email, setEmail: setEmail}
-    const residenceProps = {placeOfResidence: placeOfResidence, setPlaceOfResidence: setPlaceOfResidence}
+    const residenceProps = {placeOfResidence: placeOfResidence, setPlaceOfResidence: setPlaceOfResidence,
+        allCountries: allCountries, setAllCountries: setAllCountries}
     const professionProps = {profession: profession, setProfession: setProfession, setProfessionDetails: setProfessionDetails,
         setProfessionDetailsDisabled: setProfessionDetailsDisabled, setProfessionDetailsText: setProfessionDetailsText}
     const professionDetailsProps = {professionDetails: professionDetails, setProfessionDetails: setProfessionDetails,
