@@ -42,14 +42,28 @@ async function insertActivityRowForTodayIfDoesNotExist(connection, table_name, t
 
 
 const validateSignUp = [
-    body('name').isString().trim().escape(),
-    body('email', 'Please enter an e-mail address').isEmail().trim().escape()
+    body('first_name').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
+    body('second_name').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
+    body('email', 'Please enter an e-mail address').notEmpty().isLength({min:3, max:120}).isEmail().trim().escape(),
+    body('profession').notEmpty().isLength({min:1, max:120}).isString().trim().escape(),
+    body('reason_for_joining').isLength({min:0, max:500}).isString().trim().escape()
 ]
 
 app.post('/sign-up', ...validateSignUp, async (request, response) => {
     const errors = validationResult(request)
     if (!errors.isEmpty()) {
-        return response.status(422).json({errors: errors.array()})
+        response.sendStatus(422).json({errors: errors.array()})
+    }
+    const todaysDate = new Date().toLocaleDateString('en-GB')
+    try {
+        const connection = await getDBConnection()
+        await connection.query(`INSERT INTO sign_ups (first_name, second_name, email, profession, reason_for_joining, date_joined) VALUES ('`
+            + request.body.first_name + `', '` + request.body.second_name + `', '` + request.body.email + `', '` + request.body.profession + `', '`
+            + request.body.reason_for_joining + `', '` + todaysDate + `');`)
+        response.sendStatus(200)
+    } catch (exception){
+        console.log(exception.sqlState)
+        response.sendStatus(500)
     }
 })
 
@@ -57,22 +71,22 @@ const validatePageToLog = body('page', 'Hacking Logged').isString().matches('^([
 app.post('/log-page-load', validatePageToLog, async (request, response) => {
     const todaysDate = new Date().toLocaleDateString('en-GB')
     const errors = validationResult(request)
-    if (!errors.isEmpty()) {
-        const connection = await getDBConnection()
-        await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
-        await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
-        connection.end()
-        return response.status(422).json({errors: errors.array()})
-    }
-    const pageToLog = request.body.page
     try {
+        if (!errors.isEmpty()) {
+            const connection = await getDBConnection()
+            await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
+            await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
+            connection.end()
+            response.sendStatus(422).json({errors: errors.array()})
+        }
+        const pageToLog = request.body.page
         const connection = await getDBConnection()
         await insertActivityRowForTodayIfDoesNotExist(connection, 'site_activity', todaysDate)
         await connection.query(`UPDATE site_activity SET ` + pageToLog + ` = ` + pageToLog + ` + 1 WHERE date = '` + todaysDate + `';`)
         connection.end()
-        return response.status(200)
-    } catch (exception){
-        return response.status(500)
+        response.sendStatus(200)
+    } catch (exception) {
+        response.sendStatus(500)
     }
 })
 
