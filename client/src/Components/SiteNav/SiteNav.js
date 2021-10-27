@@ -23,6 +23,7 @@ const SiteNav = () => {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#" disabled={true}>About</NavDropdown.Item>
                             <NavDropdown.Item href="#" disabled={true}>Contact</NavDropdown.Item>
+                            <NavDropdown.Item href="sign-up">Sign Up</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
