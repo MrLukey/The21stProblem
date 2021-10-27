@@ -44,17 +44,18 @@ function capitaliseFirstLetter(string) {
 }
 
 const validateSignUp = [
-    body('first_name').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
-    body('second_name').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
-    body('email', 'Please enter an e-mail address').notEmpty().isLength({min:3, max:120}).isEmail().trim().escape(),
+    body('firstName').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
+    body('lastName').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
+    body('email').notEmpty().isLength({min:5, max:120}).isEmail().trim().escape(),
+    body('placeOfResidence').notEmpty().isLength({min:1, max:80}).trim().escape(),
     body('profession').notEmpty().isLength({min:1, max:120}).isString().trim().escape(),
-    body('reason_for_joining').isLength({min:0, max:500}).isString().trim().escape()
+    body('reasonForJoining').notEmpty().isLength({min:1, max:500}).isString().trim().escape()
 ]
 
 app.post('/sign-up', ...validateSignUp, async (request, response) => {
     const errors = validationResult(request)
     if (!errors.isEmpty()) {
-        response.sendStatus(422).json({errors: errors.array()})
+        return response.sendStatus(422)
     }
     const todaysDate = new Date().toLocaleDateString('en-GB')
     try {
@@ -66,9 +67,9 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
         response.sendStatus(200)
     } catch (exception){
         if (exception.sqlState === '23000'){
-            response.sendStatus(403)
+            return response.sendStatus(403)
         } else {
-            response.sendStatus(500)
+            return response.sendStatus(500)
         }
 
     }
@@ -84,25 +85,25 @@ app.post('/log-page-load', validatePageToLog, async (request, response) => {
             await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
             await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
             connection.end()
-            response.sendStatus(422).json({errors: errors.array()})
+            return response.sendStatus(422).json({errors: errors.array()})
         }
         const pageToLog = request.body.page
         const connection = await getDBConnection()
         await insertActivityRowForTodayIfDoesNotExist(connection, 'site_activity', todaysDate)
         await connection.query(`UPDATE site_activity SET ` + pageToLog + ` = ` + pageToLog + ` + 1 WHERE date = '` + todaysDate + `';`)
         connection.end()
-        response.sendStatus(200)
+        return response.sendStatus(200)
     } catch (exception) {
-        response.sendStatus(500)
+        return response.sendStatus(500)
     }
 })
 
 app.get('/get-all-countries', async (request, response) => {
     try {
         const connection = await getDBConnection()
-        response.json(await connection.query('SELECT id, name FROM countries'))
+        return response.json(await connection.query('SELECT id, name FROM countries'))
     } catch (exception){
-        response.sendStatus(500)
+        return response.sendStatus(500)
     }
 })
 
