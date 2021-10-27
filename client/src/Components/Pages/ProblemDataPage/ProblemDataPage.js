@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
-import InfoGraphicCard from "../InfoGraphicCard/InfoGraphicCard";
+import InfoGraphicCard from "../../Cards/InfoGraphicCard/InfoGraphicCard";
 import infoGraphicData from './problemDataInfoGraphics.json';
-import CallToActionHero from "../Heroes/CallToActionHero";
+import CallToActionHero from "../../Heroes/CallToActionHero";
 
 const ProblemDataPage = () => {
 

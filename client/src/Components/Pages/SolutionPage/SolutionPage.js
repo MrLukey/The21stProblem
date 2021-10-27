@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
-import RightImageHero from "../Heroes/RightImageHero";
-import LeftImageHero from "../Heroes/LeftImageHero";
-import CallToActionHero from "../Heroes/CallToActionHero";
+import RightImageHero from "../../Heroes/RightImageHero";
+import LeftImageHero from "../../Heroes/LeftImageHero";
+import CallToActionHero from "../../Heroes/CallToActionHero";
 
 const SolutionPage = () => {
 

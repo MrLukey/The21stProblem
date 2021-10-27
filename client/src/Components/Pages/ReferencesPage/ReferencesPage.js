@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import referenceData from './references.json'
-import ReferenceCard from "../ReferenceCard/ReferenceCard";
+import ReferenceCard from "../../Cards/ReferenceCard/ReferenceCard";
 
 const ReferencesPage = () => {
 
