@@ -58,8 +58,9 @@ const SignUpPage = () => {
                 reasonForJoining: reasonForJoining
             })
         }
+        console.log(requestOptions)
         fetch(url, requestOptions)
-            .then(response => response)
+            .then(response => console.log(response))
             .catch(error => console.log(error))
     }
 
@@ -75,7 +76,7 @@ const SignUpPage = () => {
         <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Sign up for more information</h3>
-               <FirstAndLastNameInput {...nameProps} />
+                <FirstAndLastNameInput {...nameProps} />
                 <EmailAddressInput {...emailProps} />
                 <div className="d-flex flex-row flex-nowrap mb-2">
                     <ResidenceInput {...residenceProps} />

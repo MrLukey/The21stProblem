@@ -8,6 +8,7 @@ const ProfessionInput = (props) => {
         if (selected === 'Other'){
             props.setProfessionDetailsDisabled(false)
             props.setProfessionDetailsText('Please Specify')
+            props.setProfession('')
         } else {
             props.setProfession(selected)
             props.setProfessionDetailsDisabled(true)
