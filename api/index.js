@@ -39,7 +39,9 @@ async function insertActivityRowForTodayIfDoesNotExist(connection, table_name, t
     }
 }
 
-
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 const validateSignUp = [
     body('first_name').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
@@ -57,13 +59,18 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
     const todaysDate = new Date().toLocaleDateString('en-GB')
     try {
         const connection = await getDBConnection()
-        await connection.query(`INSERT INTO sign_ups (first_name, second_name, email, profession, reason_for_joining, date_joined) VALUES ('`
-            + request.body.first_name + `', '` + request.body.second_name + `', '` + request.body.email + `', '` + request.body.profession + `', '`
-            + request.body.reason_for_joining + `', '` + todaysDate + `');`)
+        await connection.query(`INSERT INTO sign_ups (first_name, last_name, email, profession, reason_for_joining, date_joined) VALUES ('`
+            + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
+            + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.profession) + `', '`
+            + capitaliseFirstLetter(request.body.reasonForJoining) + `', '` + todaysDate + `');`)
         response.sendStatus(200)
     } catch (exception){
-        console.log(exception.sqlState)
-        response.sendStatus(500)
+        if (exception.sqlState === '23000'){
+            response.sendStatus(403)
+        } else {
+            response.sendStatus(500)
+        }
+
     }
 })
 
@@ -86,6 +93,15 @@ app.post('/log-page-load', validatePageToLog, async (request, response) => {
         connection.end()
         response.sendStatus(200)
     } catch (exception) {
+        response.sendStatus(500)
+    }
+})
+
+app.get('/get-all-countries', async (request, response) => {
+    try {
+        const connection = await getDBConnection()
+        response.json(await connection.query('SELECT id, name FROM countries'))
+    } catch (exception){
         response.sendStatus(500)
     }
 })

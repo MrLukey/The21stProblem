@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from "react";
-import {Button, Form, FormControl, FormGroup, FormLabel, FormText} from "react-bootstrap";
+import {Form, FormGroup} from "react-bootstrap";
 import './SignUpPage.css'
 
 const SignUpPage = () => {
 
     const [firstName, setFirstName] = useState('')
-    const [secondName, setSecondName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
+    const [allCountries, setAllCountries] = useState([])
+    const [placeOfResidence, setPlaceOfResidence] = useState('')
     const [profession, setProfession] = useState('')
-    const [reasonForJoining, setReasonForJoining] = useState('')
-
-
-
     const [professionDetailsDisabled, setProfessionDetailsDisabled] = useState(true)
     const [professionDetailsText, setProfessionDetailsText] = useState('')
     const [professionDetails, setProfessionDetails] = useState('')
+    const [reasonForJoining, setReasonForJoining] = useState('')
+    const [signUpButtonDisabled, setSignUpButtonDisabled] = useState(true)
 
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
@@ -28,18 +28,48 @@ const SignUpPage = () => {
         fetch(url, requestOptions)
             .then(response => response)
             .catch(error => console.log(error))
+
     }, [])
 
+    useEffect(() => {
+        const url = 'http://localhost:3001/get-all-countries'
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        }
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => setAllCountries(data))
+            .catch(error => console.log(error))
+
+    }, [])
+
+    useEffect(() => {
+        if (firstName !== '' && lastName !== '' && email !== ''){
+            setSignUpButtonDisabled(false)
+        } else {
+            setSignUpButtonDisabled(true)
+        }
+        console.log(profession)
+
+    }, [firstName, lastName, email, profession])
+
     const handleFirstNameInput = evt => {
-        setFirstName(evt.target.value)
+        if (evt.target.value.length <= 30){
+            setFirstName(evt.target.value)
+        }
     }
 
     const handleSecondNameInput = evt => {
-        setSecondName(evt.target.value)
+        if (evt.target.value.length <= 30){
+            setLastName(evt.target.value)
+        }
     }
 
     const handleEmailInput = evt => {
-        setEmail(evt.target.value)
+        if (evt.target.value.length <= 120) {
+            setEmail(evt.target.value)
+        }
     }
 
     const handleProfessionSelectInput = evt => {
@@ -56,11 +86,16 @@ const SignUpPage = () => {
     }
 
     const handleProfessionTextInput = evt => {
-        setProfessionDetails(evt.target.value)
+        if (evt.target.value.length <= 30){
+            setProfessionDetails(evt.target.value)
+            setProfession(evt.target.value)
+        }
     }
 
     const handleReasonForJoiningInput = evt => {
-        setReasonForJoining(evt.target.value)
+        if (evt.target.value.length <= 500){
+            setReasonForJoining(evt.target.value)
+        }
     }
 
     const handleSubmit = evt => {
@@ -69,14 +104,13 @@ const SignUpPage = () => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                first_name: firstName,
-                second_name: secondName,
+                firstName: firstName,
+                lastName: lastName,
                 email: email,
                 profession: professionDetails === '' ? profession : professionDetails,
-                reason_for_joining: reasonForJoining
+                reasonForJoining: reasonForJoining
             })
         }
-        console.log(requestOptions.body)
         fetch(url, requestOptions)
             .then(response => response)
             .catch(error => console.log(error))
@@ -88,19 +122,28 @@ const SignUpPage = () => {
                 <h3 className="card-title text-light text-muted text-center mb-3">Sign up for more information</h3>
                 <div className="d-flex flex-row flex-nowrap mb-2">
                     <FormGroup className="form-floating flex-grow-1 mx-1">
-                        <input className="form-control" type="text" id="firstName" value={firstName} onChange={handleFirstNameInput} max={30}/>
+                        <input className="form-control" type="text" id="firstName" value={firstName} onChange={handleFirstNameInput} maxLength={30}/>
                         <label htmlFor="firstName">First name</label>
                     </FormGroup>
                     <FormGroup className="form-floating flex-grow-1 mx-1">
-                        <input className="form-control" type="text" id="lastName" value={secondName} onChange={handleSecondNameInput} max={30}/>
+                        <input className="form-control" type="text" id="lastName" value={lastName} onChange={handleSecondNameInput} maxLength={30}/>
                         <label htmlFor="lastName">Last name</label>
                     </FormGroup>
                 </div>
                 <FormGroup className="form-floating mx-1 mb-2">
-                    <input className="form-control" type="email" id="email" value={email} onChange={handleEmailInput} max={120}/>
+                    <input className="form-control" type="email" id="email" value={email} onChange={handleEmailInput} maxLength={120}/>
                     <label htmlFor="email">Email address</label>
                 </FormGroup>
                 <div className="d-flex flex-row flex-nowrap mb-2">
+                    <FormGroup className="form-floating flex-grow-1 mx-1">
+                        <input className="form-control" type="text" list="countryOfResidence" />
+                        <datalist id="countryOfResidence">
+                            {allCountries.map(country =>
+                                <option key={country.id}>{country.name}</option>
+                            )}
+                        </datalist>
+                        <label htmlFor="countryOfResidence">Residence</label>
+                    </FormGroup>
                     <FormGroup className="form-floating flex-grow-1 mx-1" value={profession} onChange={handleProfessionSelectInput}>
                         <select className="form-control" id="profession">
                             <option key={0} value={0}> </option>
@@ -114,17 +157,17 @@ const SignUpPage = () => {
                     </FormGroup>
                     <FormGroup className="form-floating flex-grow-1 mx-1">
                         <input className="form-control" type="text" id="professionDetails" disabled={professionDetailsDisabled}
-                            value={professionDetails} onChange={handleProfessionTextInput} max={120}/>
+                            value={professionDetails} onChange={handleProfessionTextInput} maxLength={30}/>
                         <label htmlFor="professionDetails">{professionDetailsText}</label>
                     </FormGroup>
                 </div>
                 <FormGroup className="form-floating mx-1 mb-2" >
                     <textarea className="form-control h-auto"  rows={5} id="comment" value={reasonForJoining}
-                              onChange={handleReasonForJoiningInput} maxLength={500}/>
-                    <label htmlFor="comment">Please tell us a little about your reason for joining</label>
+                              onChange={handleReasonForJoiningInput} maxLength={500} />
+                    <label htmlFor="comment">Reason for joining</label>
                 </FormGroup>
             </Form>
-            <button className="btn btn-secondary mx-auto" onClick={handleSubmit}>Sign Up</button>
+            <button className="btn btn-light mx-auto" onClick={handleSubmit} disabled={signUpButtonDisabled}>Sign Up</button>
         </section>
     )
 }
