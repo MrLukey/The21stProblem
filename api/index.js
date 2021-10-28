@@ -44,11 +44,11 @@ function capitaliseFirstLetter(string) {
 }
 
 const validateSignUp = [
-    body('firstName').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
-    body('lastName').notEmpty().isLength({min:1, max:30}).isString().trim().escape(),
-    body('email').notEmpty().isLength({min:5, max:120}).isEmail().trim().escape(),
+    body('firstName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
+    body('lastName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
+    body('email').notEmpty().isLength({min:5, max:255}).isEmail().trim().escape(),
     body('placeOfResidence').notEmpty().isLength({min:1, max:80}).trim().escape(),
-    body('profession').notEmpty().isLength({min:1, max:120}).isString().trim().escape(),
+    body('profession').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
     body('reasonForJoining').notEmpty().isLength({min:1, max:500}).isString().trim().escape()
 ]
 
