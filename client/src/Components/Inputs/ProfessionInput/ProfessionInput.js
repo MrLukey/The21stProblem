@@ -13,6 +13,7 @@ const ProfessionInput = (props) => {
             props.setProfessionDetailsDisabled(true)
             props.setProfessionDetailsText('')
             props.setProfessionDetails('')
+            props.setProfessionalDetailsValid('')
         }
         if (selected !== 'Other' && selected !== ''){
             props.setProfessionValid(' is-valid')

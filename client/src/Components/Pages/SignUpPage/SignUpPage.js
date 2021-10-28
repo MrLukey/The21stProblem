@@ -106,7 +106,8 @@ const SignUpPage = () => {
 
     const professionProps = {profession: profession, setProfession: setProfession, professionValid: professionValid,
         setProfessionValid: setProfessionValid, setProfessionDetails: setProfessionDetails,
-        setProfessionDetailsDisabled: setProfessionDetailsDisabled, setProfessionDetailsText: setProfessionDetailsText}
+        setProfessionDetailsDisabled: setProfessionDetailsDisabled, setProfessionDetailsText: setProfessionDetailsText,
+        setProfessionalDetailsValid: setProfessionalDetailsValid}
 
     const professionDetailsProps = {professionDetails: professionDetails, setProfessionDetails: setProfessionDetails,
         professionDetailsValid: professionDetailsValid, setProfessionalDetailsValid: setProfessionalDetailsValid,
