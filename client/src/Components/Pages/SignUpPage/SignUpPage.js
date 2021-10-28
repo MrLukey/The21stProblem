@@ -7,6 +7,7 @@ import ResidenceInput from "../../Inputs/ResidenceInput/ResidenceInput";
 import ProfessionInput from "../../Inputs/ProfessionInput/ProfessionInput";
 import ProfessionDetailsInput from "../../Inputs/ProfessionDetailsInput/ProfessionDetailsInput";
 import ReasonForJoiningInput from "../../Inputs/ReasonForJoiningInput/ReasonForJoiningInput";
+import ReportSignUpModal from "../../Modals/ReportSignUpModal/ReportSignUpModal";
 
 const SignUpPage = () => {
     const [firstName, setFirstName] = useState('')
@@ -28,6 +29,9 @@ const SignUpPage = () => {
     const [professionDetailsValid, setProfessionalDetailsValid] = useState('')
     const [reasonValid, setReasonValid] = useState('')
 
+    const [modalOpen, setModalOpen] = useState(false)
+    const [modalText, setModalText] = useState('')
+
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
         const requestOptions = {
@@ -39,38 +43,44 @@ const SignUpPage = () => {
         }
         fetch(url, requestOptions)
             .then(response => response)
-            .catch(error => console.log(error))
+            .catch(error => error)
 
     }, [])
 
+    const showModal = () => {
+        setModalOpen(true)
+    }
+    const hideModal = () => {
+        setModalOpen(false)
+    }
 
     const handleSubmit = (evt) => {
         let formValid = true;
-        if (firstNameValid === '' || firstNameValid === ' is-invalid'){
+        if (firstNameValid !== ' is-valid'){
             setFirstNameValid(' is-invalid')
             formValid = false
         }
-        if (secondNameValid === '' || secondNameValid === ' is-invalid'){
+        if (secondNameValid !== ' is-valid'){
             setSecondNameValid(' is-invalid')
             formValid = false
         }
-        if (emailValid === '' || emailValid === ' is-invalid'){
+        if (emailValid !== ' is-valid'){
             setEmailValid(' is-invalid')
             formValid = false
         }
-        if (residenceValid === '' || residenceValid === ' is-invalid'){
+        if (residenceValid !== ' is-valid'){
             setResidenceValid(' is-invalid')
             formValid = false
         }
-        if ((profession !== 'Other' && professionValid === '') || professionValid === ' is-invalid'){
+        if (profession !== 'Other' && professionValid !== ' is-valid'){
             setProfessionValid(' is-invalid')
             formValid = false
         }
-        if ((profession === 'Other' && professionDetailsValid === '') || professionDetailsValid === ' is-invalid'){
+        if (profession === 'Other' && professionDetailsValid !== ' is-valid'){
             setProfessionalDetailsValid(' is-invalid')
             formValid = false
         }
-        if (reasonValid === '' || reasonValid === ' is-invalid'){
+        if (reasonValid !== ' is-valid'){
             setReasonValid(' is-invalid')
             formValid = false
         }
@@ -89,8 +99,20 @@ const SignUpPage = () => {
                 })
             }
             fetch(url, requestOptions)
-                .then(response => response)
-                .catch(error => console.log(error))
+                .then(response => {
+                    if (response.status === 403){
+                        setModalText('We appreciate the enthusiasm, but you\'re already signed up!')
+                    } else if (response.status === 422){
+                        setModalText('Trying something dodgy eh? We see you ^_^')
+                    } else if (response.status === 500){
+                        setModalText('An unexpected database error occurred, please try submitting again.')
+                    } else if (response.status === 200){
+                        setModalText('Welcome ' + firstName + ', information about collective action will be sent' +
+                            ' to ' + email + ' soon.')
+                    }
+                    showModal()
+                })
+                .catch(error => error)
         }
     }
 
@@ -116,6 +138,9 @@ const SignUpPage = () => {
     const reasonForJoiningProps = {reasonForJoining: reasonForJoining, setReasonForJoining: setReasonForJoining,
         reasonValid: reasonValid, setReasonValid: setReasonValid}
 
+    const reportSignUpModalProps = {firstName: firstName, email: email, modalText: modalText, modalOpen: modalOpen,
+        setModalOpen: setModalOpen, hideModal: hideModal}
+
     return (
         <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
             <Form className="col-12 col-lg-8">
@@ -130,6 +155,7 @@ const SignUpPage = () => {
                 <ReasonForJoiningInput {...reasonForJoiningProps} />
             </Form>
             <button className="btn btn-light mx-auto" onClick={handleSubmit}>Sign Up</button>
+            <ReportSignUpModal {...reportSignUpModalProps} />
         </section>
     )
 }
