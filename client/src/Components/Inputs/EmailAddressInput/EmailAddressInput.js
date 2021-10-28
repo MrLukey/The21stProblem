@@ -6,7 +6,7 @@ const EmailAddressInput = (props) => {
         if (evt.target.value.length <= 255) {
             props.setEmail(evt.target.value)
         }
-        if (validateEmail(evt.target.value)){
+        if (validateEmail(evt.target.value) || (props.optional && evt.target.value === '')){
             props.setEmailValid(' is-valid')
         } else {
             props.setEmailValid('')
@@ -21,8 +21,9 @@ const EmailAddressInput = (props) => {
 
     return (
         <FormGroup className="form-floating mx-1 mb-2">
-            <input className={"form-control" + props.emailValid} type="email" id="email" value={props.email} onChange={handleEmailInput} maxLength={255}/>
-            <label htmlFor="email">Email address</label>
+            <input className={"form-control" + props.emailValid} type="email" id="email" value={props.email}
+                   onChange={handleEmailInput} maxLength={255}/>
+            <label htmlFor="email">Email address {props.optional ? '(optional)' : ''}</label>
         </FormGroup>
     )
 }
