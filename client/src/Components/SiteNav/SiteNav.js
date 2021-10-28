@@ -22,7 +22,7 @@ const SiteNav = () => {
                             <NavDropdown.Item href="references">References</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#" disabled={true}>About</NavDropdown.Item>
-                            <NavDropdown.Item href="#" disabled={true}>Contact</NavDropdown.Item>
+                            <NavDropdown.Item href="contact">Contact</NavDropdown.Item>
                             <NavDropdown.Item href="sign-up">Sign Up</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
