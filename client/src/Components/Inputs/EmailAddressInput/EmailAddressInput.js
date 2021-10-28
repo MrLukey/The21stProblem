@@ -1,17 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import {FormGroup} from "react-bootstrap";
 
 const EmailAddressInput = (props) => {
 
-    const handleEmailInput = evt => {
-        if (evt.target.value.length <= 120) {
+    const [emailValid, setEmailValid] = useState('')
+
+    const handleEmailInput = (evt) => {
+        if (evt.target.value.length <= 255) {
             props.setEmail(evt.target.value)
         }
+        if (validateEmail(evt.target.value)){
+            setEmailValid(' is-valid')
+        } else {
+            setEmailValid('')
+        }
+    }
+
+    const validateEmail = (email) => {
+        const regex = /(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]{1,64}(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)])/
+        const emailMatch = email.match(regex)
+        return emailMatch !== null && emailMatch[0] === email;
     }
 
     return (
         <FormGroup className="form-floating mx-1 mb-2">
-            <input className="form-control" type="email" id="email" value={props.email} onChange={handleEmailInput} maxLength={120}/>
+            <input className={"form-control" + emailValid} type="email" id="email" value={props.email} onChange={handleEmailInput} maxLength={255}/>
             <label htmlFor="email">Email address</label>
         </FormGroup>
     )
