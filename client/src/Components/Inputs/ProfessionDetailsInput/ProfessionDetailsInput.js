@@ -8,7 +8,6 @@ const ProfessionDetailsInput = (props) => {
         const professionDetails = evt.target.value.replaceAll(regex, '')
         if (professionDetails.length <= 30) {
             props.setProfessionDetails(professionDetails.charAt(0).toUpperCase() + professionDetails.slice(1))
-            props.setProfession(professionDetails.charAt(0).toUpperCase() + professionDetails.slice(1))
         }
         if (professionDetails.length > 0 && professionDetails.length <= 30){
             props.setProfessionalDetailsValid(' is-valid')
