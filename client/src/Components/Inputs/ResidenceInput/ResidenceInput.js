@@ -5,17 +5,19 @@ const ResidenceInput = (props) => {
 
     const [inputValid, setInputValid] = useState('')
 
+    const setAllCountries = props.setAllCountries
     useEffect(() => {
         const url = 'http://localhost:3001/get-all-countries'
         const requestOptions = {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         }
+        console.log(requestOptions)
         fetch(url, requestOptions)
             .then(response => response.json())
-            .then(data => props.setAllCountries(data))
+            .then(data => setAllCountries(data))
             .catch(error => console.log(error))
-    }, [])
+    }, [setAllCountries])
 
 
     const handleResidenceInput = (evt) => {
