@@ -18,7 +18,7 @@ const ResidenceInput = (props) => {
     }, [])
 
 
-    const handleResidenceInput = evt => {
+    const handleResidenceInput = (evt) => {
         const countryMatches = props.allCountries.filter(country => country.name.toLowerCase().includes(evt.target.value.toLowerCase()))
         if (countryMatches.length === 1){
             props.setPlaceOfResidence(countryMatches[0].name)

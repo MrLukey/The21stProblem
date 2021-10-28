@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {FormGroup} from "react-bootstrap";
 
-const ReasonForJoiningInput = props => {
+const ReasonForJoiningInput = (props) => {
 
     const [reasonValid, setReasonValid] = useState('')
 
-    const handleReasonForJoiningInput = evt => {
+    const handleReasonForJoiningInput = (evt) => {
         const regex = new RegExp(/[^\p{L}'’` ]+/ug)
         const reasonForJoining = evt.target.value.replaceAll(regex, '')
         if (reasonForJoining.length <= 500) {

@@ -5,7 +5,7 @@ const ProfessionInput = (props) => {
 
     const [professionValid, setProfessionValid] = useState('')
 
-    const handleProfessionSelectInput = evt => {
+    const handleProfessionSelectInput = (evt) => {
         const selected = evt.target.value
         if (selected === 'Other'){
             props.setProfessionDetailsDisabled(false)

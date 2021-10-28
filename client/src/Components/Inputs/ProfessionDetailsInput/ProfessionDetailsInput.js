@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {FormGroup} from "react-bootstrap";
 
-const ProfessionDetailsInput = props => {
+const ProfessionDetailsInput = (props) => {
 
     const [professionDetailsValid, setProfessionalDetailsValid] = useState('')
 
-    const handleProfessionTextInput = evt => {
+    const handleProfessionTextInput = (evt) => {
         const regex = new RegExp(/[^\p{L}'’` ]+/ug)
         const professionDetails = evt.target.value.replaceAll(regex, '')
         if (professionDetails.length <= 30) {
