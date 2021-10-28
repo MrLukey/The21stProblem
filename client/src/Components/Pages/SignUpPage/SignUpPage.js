@@ -19,7 +19,6 @@ const SignUpPage = () => {
     const [professionDetailsText, setProfessionDetailsText] = useState('')
     const [professionDetails, setProfessionDetails] = useState('')
     const [reasonForJoining, setReasonForJoining] = useState('')
-    const [signUpButtonDisabled, setSignUpButtonDisabled] = useState(true)
 
     const [firstNameValid, setFirstNameValid] = useState('')
     const [secondNameValid, setSecondNameValid] = useState('')
@@ -44,33 +43,55 @@ const SignUpPage = () => {
 
     }, [])
 
-    useEffect(() => {
-        if (firstName !== '' && lastName !== '' && email !== '' && placeOfResidence !== '' && profession !== '' && reasonForJoining !== ''){
-            setSignUpButtonDisabled(false)
-        } else {
-            setSignUpButtonDisabled(true)
-        }
-    }, [firstName, lastName, email, placeOfResidence, profession, reasonForJoining])
 
-
-    const handleSubmit = evt => {
-        const url = 'http://localhost:3001/sign-up'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                placeOfResidence: placeOfResidence,
-                profession: professionDetails === '' ? profession : professionDetails,
-                reasonForJoining: reasonForJoining
-            })
+    const handleSubmit = (evt) => {
+        let formValid = true;
+        if (firstNameValid === '' || firstNameValid === ' is-invalid'){
+            setFirstNameValid(' is-invalid')
+            formValid = false
         }
-        console.log(requestOptions)
-        fetch(url, requestOptions)
-            .then(response => console.log(response))
-            .catch(error => console.log(error))
+        if (secondNameValid === '' || secondNameValid === ' is-invalid'){
+            setSecondNameValid(' is-invalid')
+            formValid = false
+        }
+        if (emailValid === '' || emailValid === ' is-invalid'){
+            setEmailValid(' is-invalid')
+            formValid = false
+        }
+        if (residenceValid === '' || residenceValid === ' is-invalid'){
+            setResidenceValid(' is-invalid')
+            formValid = false
+        }
+        if ((profession !== 'Other' && professionValid === '') || professionValid === ' is-invalid'){
+            setProfessionValid(' is-invalid')
+            formValid = false
+        }
+        if ((profession === 'Other' && professionDetailsValid === '') || professionDetailsValid === ' is-invalid'){
+            setProfessionalDetailsValid(' is-invalid')
+            formValid = false
+        }
+        if (reasonValid === '' || reasonValid === ' is-invalid'){
+            setReasonValid(' is-invalid')
+            formValid = false
+        }
+        if (formValid){
+            const url = 'http://localhost:3001/sign-up'
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    placeOfResidence: placeOfResidence,
+                    profession: professionDetails === '' ? profession : professionDetails,
+                    reasonForJoining: reasonForJoining
+                })
+            }
+            fetch(url, requestOptions)
+                .then(response => response)
+                .catch(error => console.log(error))
+        }
     }
 
     const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName,
@@ -107,7 +128,7 @@ const SignUpPage = () => {
                 </div>
                 <ReasonForJoiningInput {...reasonForJoiningProps} />
             </Form>
-            <button className="btn btn-light mx-auto" onClick={handleSubmit} disabled={signUpButtonDisabled}>Sign Up</button>
+            <button className="btn btn-light mx-auto" onClick={handleSubmit}>Sign Up</button>
         </section>
     )
 }
