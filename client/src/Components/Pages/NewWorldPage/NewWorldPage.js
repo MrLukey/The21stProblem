@@ -75,7 +75,7 @@ const NewWorldPage = () => {
                 to place planetary consciousness at its core, new paradigms will allow the development of technologies
                 and design patterns that inexorably increase abundance of life and biodiversity, instead of exploiting
                 and depleting it. Truly, we cannot imagine what the result of such a system could be, but the
-                responsibility for its creation falls on us."
+                responsibility for its creation falls to us."
                 image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Spacecolony3edit.jpeg/1024px-Spacecolony3edit.jpeg"
                 alt="" />
             <CallToActionHero

@@ -23,8 +23,8 @@ const WhatToDoPage = () => {
         <section className="bg-dark">
             <RightImageHero
                 title="Leaders & influencers"
-                info="ACT NOW! If you are in a position of power, whether it be political or social, you have the most
-                important job. Think deeply on what's important in your life, whether it's family or fame, money or power,
+                info="If you are in a position of power, whether it be political or social, you have the most important
+                job. Think deeply on what's important in your life, whether it's family or fame, money or power,
                 achieving incredible feats or just having some fun, all reasons lead to the same conclusion; we must
                 radically change course to preserve what we love. You must do everything you can to push an agenda of
                 global stewardship, promoting and investing in the technologies that will ensure our long term survival.
@@ -39,7 +39,7 @@ const WhatToDoPage = () => {
                 convincing enough to force certainty, but by the time it is, it will be far too late. You need to
                 talk seriously about cascade scenarios, about a transition to a greenhouse Earth and what that would mean
                 for humanity. We also need you to recommend technologies, laws and social campaigns that offer solutions
-                now, instead of sitting on the fence and preserving your objectivity. Do not shy away from your feelings,
+                now, instead of sitting on the fence to preserve your objectivity. Do not shy away from your feelings,
                 you must not let your scientific integrity stand in the way of our survival. When you are inevitably
                 labelled as an alarmist, remember it is better to be wrong and face judgement, than be right and face
                 extinction."
