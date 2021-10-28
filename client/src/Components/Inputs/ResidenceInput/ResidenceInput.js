@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {FormGroup} from "react-bootstrap";
 
 const ResidenceInput = (props) => {
-
-    const [inputValid, setInputValid] = useState('')
 
     const setAllCountries = props.setAllCountries
     useEffect(() => {
@@ -24,9 +22,9 @@ const ResidenceInput = (props) => {
         const countryMatches = props.allCountries.filter(country => country.name.toLowerCase().includes(evt.target.value.toLowerCase()))
         if (countryMatches.length === 1){
             props.setPlaceOfResidence(countryMatches[0].name)
-            setInputValid(' is-valid')
+            props.setResidenceValid(' is-valid')
         } else {
-            setInputValid('')
+            props.setResidenceValid('')
             countryMatches.forEach(country => {
                 if (country.name.toLowerCase().includes(evt.target.value.toLowerCase())){
                     props.setPlaceOfResidence(evt.target.value)
@@ -36,7 +34,8 @@ const ResidenceInput = (props) => {
 
     return (
         <FormGroup className="form-floating flex-grow-1 mx-1 ">
-            <input className={"form-control" + inputValid} type="search" list="countryOfResidence" value={props.placeOfResidence} onChange={handleResidenceInput}/>
+            <input className={"form-control" + props.residenceValid} type="search" list="countryOfResidence"
+                   value={props.placeOfResidence} onChange={handleResidenceInput}/>
             <datalist id="countryOfResidence">
                 {props.allCountries.map(country =>
                     <option key={country.id}>{country.name}</option>

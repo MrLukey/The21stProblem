@@ -21,6 +21,14 @@ const SignUpPage = () => {
     const [reasonForJoining, setReasonForJoining] = useState('')
     const [signUpButtonDisabled, setSignUpButtonDisabled] = useState(true)
 
+    const [firstNameValid, setFirstNameValid] = useState('')
+    const [secondNameValid, setSecondNameValid] = useState('')
+    const [emailValid, setEmailValid] = useState('')
+    const [residenceValid, setResidenceValid] = useState('')
+    const [professionValid, setProfessionValid] = useState('')
+    const [professionDetailsValid, setProfessionalDetailsValid] = useState('')
+    const [reasonValid, setReasonValid] = useState('')
+
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
         const requestOptions = {
@@ -65,15 +73,27 @@ const SignUpPage = () => {
             .catch(error => console.log(error))
     }
 
-    const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName}
-    const emailProps = {email: email, setEmail: setEmail}
+    const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName,
+        firstNameValid: firstNameValid, setFirstNameValid: setFirstNameValid, secondNameValid: secondNameValid,
+        setSecondNameValid: setSecondNameValid}
+
+    const emailProps = {email: email, setEmail: setEmail, emailValid: emailValid, setEmailValid: setEmailValid}
+
     const residenceProps = {placeOfResidence: placeOfResidence, setPlaceOfResidence: setPlaceOfResidence,
-        allCountries: allCountries, setAllCountries: setAllCountries}
-    const professionProps = {profession: profession, setProfession: setProfession, setProfessionDetails: setProfessionDetails,
+        residenceValid: residenceValid, setResidenceValid: setResidenceValid, allCountries: allCountries,
+        setAllCountries: setAllCountries}
+
+    const professionProps = {profession: profession, setProfession: setProfession, professionValid: professionValid,
+        setProfessionValid: setProfessionValid, setProfessionDetails: setProfessionDetails,
         setProfessionDetailsDisabled: setProfessionDetailsDisabled, setProfessionDetailsText: setProfessionDetailsText}
+
     const professionDetailsProps = {professionDetails: professionDetails, setProfessionDetails: setProfessionDetails,
+        professionDetailsValid: professionDetailsValid, setProfessionalDetailsValid: setProfessionalDetailsValid,
        setProfession: setProfession, professionDetailsDisabled: professionDetailsDisabled, professionDetailsText: professionDetailsText}
-    const reasonForJoiningProps = {reasonForJoining: reasonForJoining, setReasonForJoining: setReasonForJoining}
+
+    const reasonForJoiningProps = {reasonForJoining: reasonForJoining, setReasonForJoining: setReasonForJoining,
+        reasonValid: reasonValid, setReasonValid: setReasonValid}
+
     return (
         <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
             <Form className="col-12 col-lg-8">
