@@ -6,7 +6,7 @@ import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput"
 import ResidenceInput from "../../Inputs/ResidenceInput/ResidenceInput";
 import ProfessionInput from "../../Inputs/ProfessionInput/ProfessionInput";
 import ProfessionDetailsInput from "../../Inputs/ProfessionDetailsInput/ProfessionDetailsInput";
-import ReasonForJoiningInput from "../../Inputs/ReasonForJoiningInput/ReasonForJoiningInput";
+import TextAreaInput from "../../Inputs/TextAreaInput/TextAreaInput";
 import ReportSignUpModal from "../../Modals/ReportSignUpModal/ReportSignUpModal";
 
 const SignUpPage = () => {
@@ -135,8 +135,9 @@ const SignUpPage = () => {
         professionDetailsValid: professionDetailsValid, setProfessionalDetailsValid: setProfessionalDetailsValid,
        setProfession: setProfession, professionDetailsDisabled: professionDetailsDisabled, professionDetailsText: professionDetailsText}
 
-    const reasonForJoiningProps = {reasonForJoining: reasonForJoining, setReasonForJoining: setReasonForJoining,
-        reasonValid: reasonValid, setReasonValid: setReasonValid}
+    const reasonForJoiningProps = {textAreaValue: reasonForJoining, setTextAreaValue: setReasonForJoining, rows: 5,
+        textAreaValid: reasonValid, setTextAreaValid: setReasonValid, labelText: 'Reason for joining', maxLength: 500}
+
 
     const reportSignUpModalProps = {firstName: firstName, email: email, modalText: modalText, modalOpen: modalOpen,
         setModalOpen: setModalOpen, hideModal: hideModal}
@@ -152,7 +153,7 @@ const SignUpPage = () => {
                     <ProfessionInput {...professionProps} />
                     <ProfessionDetailsInput {...professionDetailsProps} />
                 </div>
-                <ReasonForJoiningInput {...reasonForJoiningProps} />
+                <TextAreaInput {...reasonForJoiningProps} />
             </Form>
             <button className="btn btn-light mx-auto" onClick={handleSubmit}>Sign Up</button>
             <ReportSignUpModal {...reportSignUpModalProps} />
