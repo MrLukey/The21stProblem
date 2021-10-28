@@ -9,8 +9,10 @@ const FirstAndLastNameInput = (props) => {
     const handleFirstNameInput = evt => {
         const regex = new RegExp(/[^\p{L}'’` ]+/ug)
         const name = evt.target.value.replaceAll(regex, '')
-        if (name.length !== 0 && name.length <= 35) {
+        if (name.length <= 35) {
             props.setFirstName(name.charAt(0).toUpperCase() + name.slice(1))
+        }
+        if (name.length > 0 && name.length <= 35) {
             setFirstNameValid(' is-valid')
         } else {
             setFirstNameValid('')
@@ -18,11 +20,12 @@ const FirstAndLastNameInput = (props) => {
     }
 
     const handleSecondNameInput = evt => {
-        evt.preventDefault()
         const regex = new RegExp(/[^\p{L}'’` ]+/ug)
         const name = evt.target.value.replaceAll(regex, '')
-        if (name.length !== 0 && name.length <= 35) {
+        if (name.length <= 35) {
             props.setLastName(name.charAt(0).toUpperCase() + name.slice(1))
+        }
+        if (name.length > 0 && name.length <= 35) {
             setSecondNameValid(' is-valid')
         } else {
             setSecondNameValid('')
