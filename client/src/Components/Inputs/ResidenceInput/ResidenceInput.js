@@ -10,7 +10,6 @@ const ResidenceInput = (props) => {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         }
-        console.log(requestOptions)
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => setAllCountries(data))
