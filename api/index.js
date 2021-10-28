@@ -102,8 +102,11 @@ app.post('/log-page-load', validatePageToLog, async (request, response) => {
 app.get('/get-all-countries', async (request, response) => {
     try {
         const connection = await getDBConnection()
-        return response.json(await connection.query('SELECT id, name FROM countries'))
+        const allCountries = await connection.query('SELECT id, name FROM countries')
+        connection.end()
+        return response.json(allCountries)
     } catch (exception){
+        console.log(exception)
         return response.sendStatus(500)
     }
 })
