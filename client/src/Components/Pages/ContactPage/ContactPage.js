@@ -40,7 +40,7 @@ const ContactPage = () => {
          }
          if (email !== '' && emailValid !== ' is-valid'){
              setEmailValid(' is-invalid')
-             //formValid = false
+             formValid = false
          }
          if (messageValid !== ' is-valid'){
              setMessageValid(' is-invalid')
