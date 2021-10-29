@@ -11,6 +11,7 @@ import WhatToDoPage from "./Components/Pages/WhatToDoPage/WhatToDoPage";
 import ReferencesPage from "./Components/Pages/ReferencesPage/ReferencesPage";
 import ContactPage from "./Components/Pages/ContactPage/ContactPage";
 import SignUpPage from "./Components/Pages/SignUpPage/SignUpPage";
+import AdminLoginPage from "./Components/Pages/AdminLoginPage/AdminLoginPage";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
             <SiteNav />
             <Switch>
                 <Route exact path="/" component={CoverPage} />
+                <Route exact path="/admin-login" component={AdminLoginPage} />
                 <Route path="/problem" component={ProblemPage} />
                 <Route path="/problem-data" component={ProblemDataPage} />
                 <Route path="/solution" component={SolutionPage} />
