@@ -18,7 +18,6 @@ import {useState} from "react";
 function App() {
 
     const [navDisplay, setNavDisplay] = useState('')
-
     const adminDashProps = {navDisplay: navDisplay, setNavDisplay: setNavDisplay}
 
     return (

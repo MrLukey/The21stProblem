@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {useHistory} from "react-router-dom";
+import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
 
 const AdminDashboardPage = (props) => {
 
@@ -37,9 +38,12 @@ const AdminDashboardPage = (props) => {
     }, [])
 
     return (
-        <>
-            <h1>TESYsdfsdgsdgg</h1>
-        </>
+        <section className="d-flex flex-row flex-nowrap">
+            <SideBarNav />
+            <div className="bg-light w-75 vh-100">
+
+            </div>
+        </section>
     )
 }
 
