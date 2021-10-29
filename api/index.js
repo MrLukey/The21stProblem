@@ -65,8 +65,16 @@ app.post('/admin-login', ...validateAdminLogin, async (request, response) => {
 })
 
 app.get('/verify-admin', async (request, response) => {
-    if (userSession.adminLoggedIn){
+    if (userSession && userSession.adminLoggedIn){
         return response.sendStatus(200)
+    } else {
+        return response.sendStatus(403)
+    }
+})
+
+app.get('/sign-ups', async (request, response) => {
+    if (userSession && userSession.adminLoggedIn){
+
     } else {
         return response.sendStatus(403)
     }

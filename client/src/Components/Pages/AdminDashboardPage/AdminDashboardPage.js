@@ -1,6 +1,8 @@
 import React, {useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
+import PieChart from "../../Charts/UserPieChart";
+import UserPieChart from "../../Charts/UserPieChart";
 
 const AdminDashboardPage = (props) => {
 
@@ -40,8 +42,12 @@ const AdminDashboardPage = (props) => {
     return (
         <section className="d-flex flex-row flex-nowrap">
             <SideBarNav />
-            <div className="bg-light w-75 vh-100">
-
+            <div className="bg-light d-flex flex-column flex-nowrap w-75 vh-100">
+                <div className="d-flex flex-row flex-nowrap">
+                    <UserPieChart />
+                    <UserPieChart />
+                    <UserPieChart />
+                </div>
             </div>
         </section>
     )
