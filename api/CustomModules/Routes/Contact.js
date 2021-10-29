@@ -1,5 +1,5 @@
 const {body, validationResult} = require('express-validator')
-const {capitaliseFirstLetter, getDBConnection, insertActivityRowForTodayIfDoesNotExist} = require('../HelperFunctions/HelperFunctions')
+const {capitaliseFirstLetter, getDBConnection, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 
 const validateContact = [
     body('firstName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
@@ -14,10 +14,7 @@ const contact = [...validateContact, async (request, response) => {
     const errors = validationResult(request)
     try {
         if (!errors.isEmpty()) {
-            const connection = await getDBConnection()
-            await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
-            await connection.query(`UPDATE suspicious_activity SET contact_validation_failed = contact_validation_failed + 1 WHERE date = '` + todaysDate + `';`)
-            connection.end()
+            await logSuspiciousActivity('contact_validation_failed')
             return response.sendStatus(422)
         }
         const connection = await getDBConnection()

@@ -1,5 +1,5 @@
 const {body, validationResult} = require('express-validator')
-const {getDBConnection, insertActivityRowForTodayIfDoesNotExist} = require('../HelperFunctions/HelperFunctions')
+const {getDBConnection, insertActivityRowForTodayIfDoesNotExist, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 
 const validPages = 'cover|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_downloads|admin_login|admin_dashboard'
 const validatePageToLog = body('page', 'Hacking Logged').isString().matches(validPages).trim().escape()
@@ -8,10 +8,7 @@ const logPageLoad = [validatePageToLog, async (request, response ) => {
     const errors = validationResult(request)
     try {
         if (!errors.isEmpty()) {
-            const connection = await getDBConnection()
-            await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
-            await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
-            connection.end()
+            await logSuspiciousActivity('page_logging_failure')
             return response.sendStatus(422)
         }
         const pageToLog = request.body.page
