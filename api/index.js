@@ -62,9 +62,9 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
         const connection = await getDBConnection()
         await connection.query(`INSERT INTO sign_ups (first_name, last_name, email, residence, profession, reason_for_joining, date_joined) VALUES ('`
             + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
-            + `', '` + request.body.email + `', '` + request.body.placeOfResidence + `', '`
-            + capitaliseFirstLetter(request.body.profession) + `', '` + capitaliseFirstLetter(request.body.reasonForJoining)
-            + `', '` + todaysDate + `');`)
+            + `', '` + request.body.email + `', '` + request.body.placeOfResidence + `', '` + capitaliseFirstLetter(request.body.profession)
+            + `', '` + capitaliseFirstLetter(request.body.reasonForJoining) + `', '` + todaysDate + `');`)
+        connection.end()
         response.sendStatus(200)
     } catch (exception){
         if (exception.sqlState === '23000'){
@@ -73,6 +73,33 @@ app.post('/sign-up', ...validateSignUp, async (request, response) => {
             return response.sendStatus(500)
         }
 
+    }
+})
+
+const validateContact = [
+    body('firstName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
+    body('lastName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
+    body('email').optional({checkFalsy: true}).notEmpty().isLength({min:5, max:255}).isEmail().trim().escape(),
+    body('message').notEmpty().isLength({min:1, max:500}).isString().trim().escape()
+]
+
+app.post('/contact', ...validateContact, async (request, response) => {
+    const errors = validationResult(request)
+    if (!errors.isEmpty()) {
+        return response.sendStatus(422)
+    }
+    const todaysDate = new Date().toLocaleDateString('en-GB')
+    const timeNow = new Date().toLocaleTimeString('en-GB')
+    try {
+        const connection = await getDBConnection()
+        await connection.query(`INSERT INTO messages (first_name, last_name, email, message, date, time) VALUES ('`
+            + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
+            + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.message) + `', '` + todaysDate +
+            `', '` + timeNow + `');`)
+        connection.end()
+        response.sendStatus(200)
+    } catch (exception){
+        return response.sendStatus(500)
     }
 })
 
@@ -106,7 +133,6 @@ app.get('/get-all-countries', async (request, response) => {
         connection.end()
         return response.json(allCountries)
     } catch (exception){
-        console.log(exception)
         return response.sendStatus(500)
     }
 })
