@@ -12,6 +12,7 @@ import ReferencesPage from "./Components/Pages/ReferencesPage/ReferencesPage";
 import ContactPage from "./Components/Pages/ContactPage/ContactPage";
 import SignUpPage from "./Components/Pages/SignUpPage/SignUpPage";
 import AdminLoginPage from "./Components/Pages/AdminLoginPage/AdminLoginPage";
+import AdminDashboardPage from "./Components/Pages/AdminDashboardPage/AdminDashboardPage";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
             <Switch>
                 <Route exact path="/" component={CoverPage} />
                 <Route exact path="/admin-login" component={AdminLoginPage} />
+                <Route exact path="/admin-dashboard" component={AdminDashboardPage} />
                 <Route path="/problem" component={ProblemPage} />
                 <Route path="/problem-data" component={ProblemDataPage} />
                 <Route path="/solution" component={SolutionPage} />

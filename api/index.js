@@ -112,7 +112,7 @@ app.post('/contact', ...validateContact, async (request, response) => {
     }
 })
 
-const validPages = 'cover|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_downloads'
+const validPages = 'cover|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_downloads|admin_login|admin_dashboard'
 const validatePageToLog = body('page', 'Hacking Logged').isString().matches(validPages).trim().escape()
 app.post('/log-page-load', validatePageToLog, async (request, response) => {
     const todaysDate = new Date().toLocaleDateString('en-GB')
