@@ -1,11 +1,13 @@
 import React, {useEffect} from "react";
 import {useHistory} from "react-router-dom";
 
-const AdminDashboardPage = () => {
+const AdminDashboardPage = (props) => {
 
     const history = useHistory()
+    const setNavDisplay = props.setNavDisplay
 
     useEffect(() => {
+        setNavDisplay('d-none')
         const url = 'http://localhost:3001/verify-admin'
         const requestOptions = {
             method: 'GET',
@@ -18,7 +20,7 @@ const AdminDashboardPage = () => {
                 }
             })
             .catch(error => error)
-    })
+    }, [setNavDisplay, history])
 
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
@@ -32,11 +34,11 @@ const AdminDashboardPage = () => {
         fetch(url, requestOptions)
             .then(response => response)
             .catch(error => error)
-
     }, [])
 
     return (
         <>
+            <h1>TESYsdfsdgsdgg</h1>
         </>
     )
 }

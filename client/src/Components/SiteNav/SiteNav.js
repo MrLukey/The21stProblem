@@ -2,9 +2,9 @@ import React from "react";
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import pdfVersion from './test.txt'
 
-const SiteNav = () => {
+const SiteNav = (props) => {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" className={props.navDisplay}>
             <Container>
                 <Navbar.Brand href="/">The 21st Problem</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
