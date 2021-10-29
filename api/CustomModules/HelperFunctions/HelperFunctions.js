@@ -24,8 +24,17 @@ async function insertActivityRowForTodayIfDoesNotExist(connection, table_name, t
     }
 }
 
+async function logSuspiciousActivity(activity) {
+    const todaysDate = new Date().toLocaleDateString('en-GB')
+    const connection = await getDBConnection()
+    await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
+    await connection.query(`UPDATE suspicious_activity SET ` + activity + ` = ` + activity + ` + 1 WHERE date = '` + todaysDate + `';`)
+    connection.end()
+}
+
 module.exports = {
     capitaliseFirstLetter: capitaliseFirstLetter,
     getDBConnection: getDBConnection,
-    insertActivityRowForTodayIfDoesNotExist: insertActivityRowForTodayIfDoesNotExist
+    insertActivityRowForTodayIfDoesNotExist: insertActivityRowForTodayIfDoesNotExist,
+    logSuspiciousActivity: logSuspiciousActivity
 }
