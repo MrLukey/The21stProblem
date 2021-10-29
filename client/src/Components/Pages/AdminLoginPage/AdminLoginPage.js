@@ -20,6 +20,7 @@ const AdminLoginPage = () => {
         let formValid = true
         if (emailValid !== ' is-valid'){
             setEmailValid(' is-invalid')
+            formValid = false
         }
         if (formValid){
             const url = 'http://localhost:3001/admin-login'
