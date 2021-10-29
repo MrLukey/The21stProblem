@@ -53,12 +53,16 @@ const validateSignUp = [
 ]
 
 app.post('/sign-up', ...validateSignUp, async (request, response) => {
-    const errors = validationResult(request)
-    if (!errors.isEmpty()) {
-        return response.sendStatus(422)
-    }
     const todaysDate = new Date().toLocaleDateString('en-GB')
+    const errors = validationResult(request)
     try {
+        if (!errors.isEmpty()) {
+            const connection = await getDBConnection()
+            await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
+            await connection.query(`UPDATE suspicious_activity SET sign_up_validation_failed = sign_up_validation_failed + 1 WHERE date = '` + todaysDate + `';`)
+            connection.end()
+            return response.sendStatus(422)
+        }
         const connection = await getDBConnection()
         await connection.query(`INSERT INTO sign_ups (first_name, last_name, email, residence, profession, reason_for_joining, date_joined) VALUES ('`
             + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
@@ -82,15 +86,18 @@ const validateContact = [
     body('email').optional({checkFalsy: true}).notEmpty().isLength({min:5, max:255}).isEmail().trim().escape(),
     body('message').notEmpty().isLength({min:1, max:500}).isString().trim().escape()
 ]
-
 app.post('/contact', ...validateContact, async (request, response) => {
-    const errors = validationResult(request)
-    if (!errors.isEmpty()) {
-        return response.sendStatus(422)
-    }
     const todaysDate = new Date().toLocaleDateString('en-GB')
     const timeNow = new Date().toLocaleTimeString('en-GB')
+    const errors = validationResult(request)
     try {
+        if (!errors.isEmpty()) {
+            const connection = await getDBConnection()
+            await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
+            await connection.query(`UPDATE suspicious_activity SET contact_validation_failed = contact_validation_failed + 1 WHERE date = '` + todaysDate + `';`)
+            connection.end()
+            return response.sendStatus(422)
+        }
         const connection = await getDBConnection()
         await connection.query(`INSERT INTO messages (first_name, last_name, email, message, date, time) VALUES ('`
             + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
@@ -102,6 +109,7 @@ app.post('/contact', ...validateContact, async (request, response) => {
         return response.sendStatus(500)
     }
 })
+
 const validPages = 'cover|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_downloads'
 const validatePageToLog = body('page', 'Hacking Logged').isString().matches(validPages).trim().escape()
 app.post('/log-page-load', validatePageToLog, async (request, response) => {
@@ -113,7 +121,7 @@ app.post('/log-page-load', validatePageToLog, async (request, response) => {
             await insertActivityRowForTodayIfDoesNotExist(connection, 'suspicious_activity', todaysDate)
             await connection.query(`UPDATE suspicious_activity SET page_logging_failure = page_logging_failure + 1 WHERE date = '` + todaysDate + `';`)
             connection.end()
-            return response.sendStatus(422).json({errors: errors.array()})
+            return response.sendStatus(422)
         }
         const pageToLog = request.body.page
         const connection = await getDBConnection()
