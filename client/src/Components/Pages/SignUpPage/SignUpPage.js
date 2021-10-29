@@ -32,21 +32,6 @@ const SignUpPage = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const [modalText, setModalText] = useState('')
 
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'sign_up'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => error)
-
-    }, [])
-
     const showModal = () => {
         setModalOpen(true)
     }
@@ -115,6 +100,21 @@ const SignUpPage = () => {
                 .catch(error => error)
         }
     }
+
+    useEffect(() => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'sign_up'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => response)
+            .catch(error => error)
+
+    }, [])
 
     const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName,
         firstNameValid: firstNameValid, setFirstNameValid: setFirstNameValid, secondNameValid: secondNameValid,
