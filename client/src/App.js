@@ -22,23 +22,22 @@ function App() {
 
     return (
         <Router>
-                <SiteNav navDisplay={navDisplay}/>
-                <Switch>
-                    <Route exact path="/" component={CoverPage} />
-                    <Route exact path="/admin-login" component={AdminLoginPage} />
-                    <Route exact path="/admin-dashboard" render={() => <AdminDashboardPage {...adminDashProps} />} />
-                    <Route path="/problem" component={ProblemPage} />
-                    <Route path="/problem-data" component={ProblemDataPage} />
-                    <Route path="/solution" component={SolutionPage} />
-                    <Route path="/solution-data" component={SolutionDataPage} />
-                    <Route path="/new-world" component={NewWorldPage} />
-                    <Route path="/what-to-do" component={WhatToDoPage} />
-                    <Route path="/references" component={ReferencesPage} />
-                    <Route path="/contact" component={ContactPage} />
-                    <Route path="/sign-up" component={SignUpPage} />
-                </Switch>
+            <SiteNav navDisplay={navDisplay}/>
+            <Switch>
+                <Route exact path="/" component={CoverPage} />
+                <Route exact path="/admin-login" component={AdminLoginPage} />
+                <Route exact path="/admin-dashboard" render={() => <AdminDashboardPage {...adminDashProps} />} />
+                <Route path="/problem" component={ProblemPage} />
+                <Route path="/problem-data" component={ProblemDataPage} />
+                <Route path="/solution" component={SolutionPage} />
+                <Route path="/solution-data" component={SolutionDataPage} />
+                <Route path="/new-world" component={NewWorldPage} />
+                <Route path="/what-to-do" component={WhatToDoPage} />
+                <Route path="/references" component={ReferencesPage} />
+                <Route path="/contact" component={ContactPage} />
+                <Route path="/sign-up" component={SignUpPage} />
+            </Switch>
         </Router>
-
     )
 }
 
