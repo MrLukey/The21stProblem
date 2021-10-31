@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import CustomRadarChart from "../../CustomRadarChart/CustomRadarChart";
 
-const MainPageActivityChart = (props) => {
+const MainPageActivityRadar = (props) => {
 
     const [chartData, setChartData] = useState([
         {page: 'Cover', pageLoads: 0,},
@@ -60,4 +60,4 @@ const MainPageActivityChart = (props) => {
     )
 }
 
-export default MainPageActivityChart
+export default MainPageActivityRadar

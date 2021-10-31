@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import {Container} from "react-bootstrap";
 
 const data = [
     { name: 'Group A', value: 400 },
@@ -28,7 +29,7 @@ class CustomPieChart extends PureComponent {
 
     render() {
         return (
-            <ResponsiveContainer width="100%" height="100%">
+            <Container width="100%" height="100%">
                 <PieChart width={400} height={400}>
                     <Pie
                         data={data}
@@ -45,7 +46,7 @@ class CustomPieChart extends PureComponent {
                         ))}
                     </Pie>
                 </PieChart>
-            </ResponsiveContainer>
+            </Container>
         );
     }
 }
