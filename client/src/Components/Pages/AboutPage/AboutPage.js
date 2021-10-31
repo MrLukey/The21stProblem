@@ -1,6 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 const AboutPage = () => {
+
+    useEffect(() => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'about'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => response)
+            .catch(error => error)
+    }, [])
+
     return (
         <section className="full-page d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark">
             <div className="container text-center col-lg-6">
