@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 const ReferenceCard = (props) => {
     return (
-        <Card className="my-1">
+        <Card className="mb-1">
             <Card.Body className="d-flex">
                 <a className="text-decoration-none text-dark" href={props.link}>[{props.id}] {props.citation}</a>
             </Card.Body>
