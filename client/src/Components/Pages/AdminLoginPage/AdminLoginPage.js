@@ -4,7 +4,7 @@ import {Form} from "react-bootstrap";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
 import PasswordInput from "../../Inputs/PasswordInput/PasswordInput";
 
-const AdminLoginPage = () => {
+const AdminLoginPage = (props) => {
 
     const history = useHistory()
 
@@ -42,6 +42,7 @@ const AdminLoginPage = () => {
         }
     }
 
+    const setNavDisplay = props.setNavDisplay
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
         const requestOptions = {
@@ -52,11 +53,11 @@ const AdminLoginPage = () => {
             })
         }
         fetch(url, requestOptions).catch()
-
-    }, [])
+        setNavDisplay('d-none')
+    }, [setNavDisplay])
 
     return (
-        <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
+        <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark vh-100" id="signUp">
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Admin login</h3>
                 <EmailAddressInput {...emailProps} />

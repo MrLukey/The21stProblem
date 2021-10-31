@@ -25,7 +25,7 @@ function App() {
             <SiteNav navDisplay={navDisplay}/>
             <Switch>
                 <Route exact path="/" component={CoverPage} />
-                <Route exact path="/admin-login" component={AdminLoginPage} />
+                <Route exact path="/admin-login" render={() => <AdminLoginPage setNavDisplay={setNavDisplay} />} />
                 <Route exact path="/admin-dashboard" render={() => <AdminDashboardPage {...adminDashProps} />} />
                 <Route path="/problem" component={ProblemPage} />
                 <Route path="/problem-data" component={ProblemDataPage} />
