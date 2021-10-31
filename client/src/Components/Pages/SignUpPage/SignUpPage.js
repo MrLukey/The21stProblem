@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Form} from "react-bootstrap";
-import './SignUpPage.css'
 import FirstAndLastNameInput from "../../Inputs/FirstAndLastNameInput/FirstAndLastNameInput";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
 import ResidenceInput from "../../Inputs/ResidenceInput/ResidenceInput";
@@ -143,7 +142,7 @@ const SignUpPage = () => {
         setModalOpen: setModalOpen, hideModal: hideModal}
 
     return (
-        <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
+        <section className="full-page d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Sign up for more information</h3>
                 <FirstAndLastNameInput {...nameProps} />

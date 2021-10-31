@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Form} from "react-bootstrap";
 import FirstAndLastNameInput from "../../Inputs/FirstAndLastNameInput/FirstAndLastNameInput";
-import './ContactPage.css'
 import TextAreaInput from "../../Inputs/TextAreaInput/TextAreaInput";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
 import ReportSignUpModal from "../../Modals/ReportSignUpModal/ReportSignUpModal";
@@ -102,7 +101,7 @@ const ContactPage = () => {
         setModalOpen: setModalOpen, hideModal: hideModal}
 
     return (
-        <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="contact">
+        <section className="full-page d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="contact">
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Get in touch</h3>
                 <FirstAndLastNameInput {...nameProps}/>

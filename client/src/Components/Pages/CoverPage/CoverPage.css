@@ -1,7 +1,4 @@
 #cover {
-    height: calc(100vh - 56px);
-    height: -webkit-calc(100% - 56px); /* google, safari */
-    height: -moz-calc(100% - 56px); /* firefox */
     background-image: url("fire.jpg");
     background-repeat: no-repeat;
     background-position: center;
