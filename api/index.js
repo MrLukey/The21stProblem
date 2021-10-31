@@ -11,6 +11,10 @@ const {logPageLoad} = require('./CustomModules/Routes/LogPageLoad')
 const {signUp} = require('./CustomModules/Routes/SignUp')
 const {contact} = require('./CustomModules/Routes/Contact')
 const {allCountries} = require('./CustomModules/Routes/AllCountries')
+const {allSignUps} = require('./CustomModules/Routes/AllSignUps')
+const {allMessages} = require('./CustomModules/Routes/AllMessages')
+const {siteActivity} = require('./CustomModules/Routes/SiteActivity')
+const {suspiciousActivity} = require('./CustomModules/Routes/SuspiciousActivity')
 
 const port = 3001
 const app = express()
@@ -64,28 +68,21 @@ app.post('/admin-login', ...validateAdminLogin, async (request, response) => {
     }
 })
 
-app.get('/verify-admin', async (request, response) => {
+const verifyAdmin = (request, response, next) => {
     if (userSession && userSession.adminLoggedIn){
-        return response.sendStatus(200)
+        next()
     } else {
         return response.sendStatus(403)
     }
+}
+
+app.get('/verify-admin', verifyAdmin, async (request, response) => {
+    return response.sendStatus(200)
 })
 
-app.get('/sign-ups', async (request, response) => {
-    if (userSession && userSession.adminLoggedIn){
-        try {
-            const connection = await getDBConnection()
-            const signUpData = await connection.query(`SELECT first_name AS firstName, last_name AS lastName, residence,
-            profession, reason_for_joining AS reasonForJoining, date_joined AS dateJoined FROM sign_ups ORDER BY dateJoined`)
-            connection.end()
-            return response.json(signUpData)
-        } catch (exception){
-            return response.sendStatus(500)
-        }
-    } else {
-        return response.sendStatus(403)
-    }
-})
+app.get('/sign-ups', verifyAdmin, allSignUps)
+app.get('/messages', verifyAdmin, allMessages)
+app.get('/site-activity', verifyAdmin, siteActivity)
+app.get('/suspicious-activity', verifyAdmin, suspiciousActivity)
 
 app.listen(port)
