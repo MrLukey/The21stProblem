@@ -13,6 +13,7 @@ import ContactPage from "./Components/Pages/ContactPage/ContactPage";
 import SignUpPage from "./Components/Pages/SignUpPage/SignUpPage";
 import AdminLoginPage from "./Components/Pages/AdminLoginPage/AdminLoginPage";
 import AdminDashboardPage from "./Components/Pages/AdminDashboardPage/AdminDashboardPage";
+import AboutPage from "./Components/Pages/AboutPage/AboutPage";
 import {useState} from "react";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                 <Route exact path="/" component={CoverPage} />
                 <Route exact path="/admin-login" render={() => <AdminLoginPage setNavDisplay={setNavDisplay} />} />
                 <Route exact path="/admin-dashboard" render={() => <AdminDashboardPage {...adminDashProps} />} />
+                <Route path="/about" component={AboutPage} />
                 <Route path="/problem" component={ProblemPage} />
                 <Route path="/problem-data" component={ProblemDataPage} />
                 <Route path="/solution" component={SolutionPage} />
