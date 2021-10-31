@@ -50,6 +50,7 @@ const AdminLoginPage = (props) => {
 
     const setNavDisplay = props.setNavDisplay
     useEffect(() => {
+        setNavDisplay('d-none')
         const url = 'http://localhost:3001/log-page-load'
         const requestOptions = {
             method: 'POST',
@@ -59,7 +60,6 @@ const AdminLoginPage = (props) => {
             })
         }
         fetch(url, requestOptions).catch()
-        setNavDisplay('d-none')
     }, [setNavDisplay])
 
     return (

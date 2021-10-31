@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useHistory} from "react-router-dom";
 import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
-import UserPieChart from "../../Charts/UserPieChart/UserPieChart";
+import ActivityChartBar from "../../ChartBars/ActivityChartBar/ActivityChartBar";
 
 const AdminDashboardPage = (props) => {
 
@@ -44,9 +44,7 @@ const AdminDashboardPage = (props) => {
             <div className="bg-light d-flex flex-column flex-nowrap w-75 vh-100">
                 {/*<h3>Some english here for google to fucking figure it out</h3>*/}
                 <div className="d-flex flex-row flex-nowrap h-25 w-75">
-                    <UserPieChart />
-                    <UserPieChart />
-                    <UserPieChart />
+                    <ActivityChartBar />
                 </div>
             </div>
         </section>

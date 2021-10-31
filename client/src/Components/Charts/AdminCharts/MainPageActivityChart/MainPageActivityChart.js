@@ -1,70 +1,43 @@
 import React, {useEffect, useState} from "react";
-import CustomRadarChart from "../../../CustomRadarChart/CustomRadarChart";
+import CustomRadarChart from "../../CustomRadarChart/CustomRadarChart";
 
-const MainPageActivityChart = () => {
+const MainPageActivityChart = (props) => {
 
-    const [allSiteActivity, setAllSiteActivity] = useState([])
-    const [chartData, setChartData] = useState(
-        [
-            {
-                page: 'cover',
-                pageLoads: 0,
-            },
-            {
-                page: 'problem',
-                pageLoads: 0,
-            },
-            {
-                page: 'solution',
-                pageLoads: 0,
-            },
-            {
-                page: 'newWorld',
-                pageLoads: 0,
-            },
-            {
-                page: 'whatToDo',
-                pageLoads: 0,
-            },
-        ])
+    const [chartData, setChartData] = useState([
+        {page: 'Cover', pageLoads: 0,},
+        {page: 'Problem', pageLoads: 0,},
+        {page: 'Solution', pageLoads: 0,},
+        {page: 'New World', pageLoads: 0,},
+        {page: 'What To Do', pageLoads: 0,},
+    ])
 
     useEffect(() => {
-        const url = 'http://localhost:3001/site-activity'
-        const requestOptions = {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        }
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                populateGraph(data)
-                setAllSiteActivity(data)
-            })
-            .catch(error => error)
-    }, [])
-
-    const populateGraph = (data) => {
         const cover = {
-            page: 'cover',
+            page: 'Cover',
             pageLoads: 0
         }
         const problem = {
-            page: 'problem',
+            page: 'Problem',
             pageLoads: 0
         }
         const solution = {
-            page: 'solution',
+            page: 'Solution',
             pageLoads: 0
         }
         const newWorld = {
-            page: 'newWorld',
+            page: 'New World',
             pageLoads: 0
         }
         const whatToDo = {
-            page: 'whatToDo',
+            page: 'What To Do',
             pageLoads: 0
         }
+        const limit = new Date('22/10/2021')
+        const otherDate = new Date('23/10/2021')
+        console.log(new Date('22/10/2021').valueOf() < new Date('23/10/2021').valueOf())
+        props.allSiteActivity.map(day => console.log(day.date))
+        console.log(props.allSiteActivity)
+        const data = props.allSiteActivity
         data.forEach(day => {
             cover.pageLoads += day.cover
             problem.pageLoads += day.problem
@@ -73,7 +46,8 @@ const MainPageActivityChart = () => {
             whatToDo.pageLoads += day.whatToDo
         })
         setChartData([cover, problem, solution, newWorld, whatToDo])
-    }
+    }, [props.allSiteActivity])
+
     return (
         <>
             <CustomRadarChart
