@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs')
 const {getDBConnection, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 
 const validateAdminLogin = [
-    body('email', 'Please enter an e-mail address').isEmail().trim().escape(),
-    body('password').isLength({min: 8}).matches('[0-9]').matches('(?=.*[a-z])(?=.*[A-Z])').trim().escape()
+    body('email').isEmail().isLength({min: 5, max: 255}).trim().escape(),
+    body('password').isLength({min: 8, max: 255}).trim().escape()
 ]
 const adminLogin = async (request, response, next) => {
     const errors = validationResult(request)

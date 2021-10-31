@@ -12,14 +12,20 @@ const AdminLoginPage = (props) => {
     const [password, setPassword] = useState('')
 
     const [emailValid, setEmailValid] = useState('')
+    const [passwordValid, setPasswordValid] = useState('')
 
     const emailProps = {email: email, setEmail: setEmail, emailValid: emailValid, setEmailValid: setEmailValid}
-    const passwordProps = {password: password, setPassword: setPassword}
+    const passwordProps = {password: password, setPassword: setPassword, passwordValid: passwordValid,
+        setPasswordValid: setPasswordValid}
 
-    const handleLogin = (evt) => {
+    const handleLogin = () => {
         let formValid = true
         if (emailValid !== ' is-valid'){
             setEmailValid(' is-invalid')
+            formValid = false
+        }
+        if (passwordValid !== ' is-valid'){
+            setPasswordValid(' is-invalid')
             formValid = false
         }
         if (formValid){
