@@ -1,7 +1,7 @@
 const {getDBConnection, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 const {body, validationResult} = require('express-validator')
 
-const validateMessageRequest = [
+const validateSignUpRequest = [
     body('startDate').notEmpty().isString().matches('[0-9]{2}/[0-9]{2}/[0-9]{4}').trim(),
     body('endDate').notEmpty().isString().matches('[0-9]{2}/[0-9]{2}/[0-9]{4}').trim(),
 ]
@@ -26,4 +26,7 @@ const getSignUps = async (request, response) => {
     }
 }
 
-module.exports = {getSignUps: getSignUps}
+module.exports = {
+    validateSignUpRequest:validateSignUpRequest,
+    getSignUps: getSignUps
+}
