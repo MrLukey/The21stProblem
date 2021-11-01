@@ -10,7 +10,7 @@ const SignUpAccordion = (props) => {
                 <Accordion>
                     {props.signUps.map(signUp =>
                         <Accordion.Item key={signUp.id} eventKey={signUp.id}>
-                            <Accordion.Header>{signUp.firstName} {signUp.lastName} from {signUp.residence}</Accordion.Header>
+                            <Accordion.Header>{signUp.firstName} {signUp.lastName} - {signUp.profession} from {signUp.residence}</Accordion.Header>
                             <Accordion.Body>
                                 <p>{signUp.reasonForJoining}</p>
                                 <button className="btn btn-primary" onClick={() => props.editSignUpState(signUp.id, props.stateToChange, props.newState)}>{props.editSignUpButton}</button>

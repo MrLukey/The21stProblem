@@ -5,7 +5,6 @@ const validateMessageRequest = [
     body('startDate').notEmpty().isString().matches('[0-9]{2}/[0-9]{2}/[0-9]{4}').trim(),
     body('endDate').notEmpty().isString().matches('[0-9]{2}/[0-9]{2}/[0-9]{4}').trim(),
 ]
-
 const getMessages = async (request, response) => {
     const errors = validationResult(request)
     try {

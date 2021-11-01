@@ -14,18 +14,18 @@ const AdminDashboardPage = (props) => {
     const setNavDisplay = props.setNavDisplay
     useEffect(() => {
         setNavDisplay('d-none')
-        const url = 'http://localhost:3001/verify-admin'
-        const requestOptions = {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'}
-        }
-        fetch(url, requestOptions)
-            .then(response => {
-                if (response.status !== 200){
-                    history.push('admin-login')
-                }
-            })
-            .catch(error => error)
+        // const url = 'http://localhost:3001/verify-admin'
+        // const requestOptions = {
+        //     method: 'GET',
+        //     headers: {'Content-Type': 'application/json'}
+        // }
+        // fetch(url, requestOptions)
+        //     .then(response => {
+        //         if (response.status !== 200){
+        //             history.push('admin-login')
+        //         }
+        //     })
+        //     .catch(error => error)
     }, [setNavDisplay,history])
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const AdminDashboardPage = (props) => {
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
             <div className="bg-light d-flex flex-column flex-nowrap w-100">
                 <UserMessagesView activeView={activeView} />
-                {/*<SignUpView activeView={activeView} />*/}
+                <SignUpView activeView={activeView} />
             </div>
         </section>
     )

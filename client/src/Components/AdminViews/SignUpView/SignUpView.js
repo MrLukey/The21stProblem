@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTimeframeNav";
 import {Accordion} from "react-bootstrap";
-import MessagesAccordion from "../../Accordions/MessagesAccordion/MessagesAccordion";
+import SignUpAccordion from "../../Accordions/SignUpAccordion/SignUpAccordion";
 
 const SignUpView = (props) => {
     const [newSignUps, setNewSignUps] = useState([])
@@ -57,7 +57,7 @@ const SignUpView = (props) => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                messageID: signUpID,
+                signUpID: signUpID,
                 stateToChange: stateToChange,
                 newState: newState
             })
@@ -73,10 +73,10 @@ const SignUpView = (props) => {
 
     const dataTimeframeProps = {startDate: startDate, setStartDate: setStartDate, endDate: endDate, setEndDate: setEndDate}
     return (
-        <section className={props.activeView === 'messages' ? '' : 'd-none'}>
+        <section className={props.activeView === 'signUps' ? '' : 'd-none'}>
             <AdminDataTimeframeNav {...dataTimeframeProps} />
             <Accordion>
-                <MessagesAccordion
+                <SignUpAccordion
                     eventKey={0}
                     signUps={newSignUps}
                     signUpGroup="New Sign Ups"
@@ -84,7 +84,7 @@ const SignUpView = (props) => {
                     editSignUpButton="Mark as Seen"
                     stateToChange="seen_by_admin"
                     newState={1} />
-                <MessagesAccordion
+                <SignUpAccordion
                     eventKey={0}
                     signUps={oldUsers}
                     signUpGroup="Users"
