@@ -9,7 +9,7 @@ const {contact} = require('./CustomModules/Routes/Contact')
 const {allCountries} = require('./CustomModules/Routes/AllCountries')
 const {validateAdminLogin, adminLogin} = require('./CustomModules/Routes/AdminLogin')
 const {allSignUps} = require('./CustomModules/Routes/AllSignUps')
-const {allMessages} = require('./CustomModules/Routes/AllMessages')
+const {validateMessageRequest, getMessages} = require('./CustomModules/Routes/GetMessages')
 const {siteActivity} = require('./CustomModules/Routes/SiteActivity')
 const {suspiciousActivity} = require('./CustomModules/Routes/SuspiciousActivity')
 const {validateEdit, editMessageState} = require('./CustomModules/Routes/EditMessageState')
@@ -48,7 +48,6 @@ const verifyAdmin = (request, response, next) => {
     }
 }
 
-
 app.post('/log-page-load', ...logPageLoad)
 app.post('/sign-up', ...signUp)
 app.post('/contact', ...contact)
@@ -57,7 +56,7 @@ app.get('/get-all-countries', allCountries)
 app.post('/admin-login', destroySession, ...validateAdminLogin, adminLogin, setAdminLoggedIn)
 app.get('/verify-admin', verifyAdmin, async (request, response) => {return response.sendStatus(200)})
 app.get('/sign-ups', verifyAdmin, allSignUps)
-app.get('/messages', verifyAdmin, allMessages)
+app.post('/messages', verifyAdmin, ...validateMessageRequest, getMessages)
 app.get('/site-activity', verifyAdmin, siteActivity)
 app.get('/suspicious-activity', verifyAdmin, suspiciousActivity)
 app.post('/edit-message-state', verifyAdmin, ...validateEdit, editMessageState)
