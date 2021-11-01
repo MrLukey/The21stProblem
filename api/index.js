@@ -12,6 +12,7 @@ const {allSignUps} = require('./CustomModules/Routes/AllSignUps')
 const {allMessages} = require('./CustomModules/Routes/AllMessages')
 const {siteActivity} = require('./CustomModules/Routes/SiteActivity')
 const {suspiciousActivity} = require('./CustomModules/Routes/SuspiciousActivity')
+const {validateEdit, editMessageState} = require('./CustomModules/Routes/EditMessageState')
 
 const port = 3001
 const app = express()
@@ -59,5 +60,6 @@ app.get('/sign-ups', verifyAdmin, allSignUps)
 app.get('/messages', verifyAdmin, allMessages)
 app.get('/site-activity', verifyAdmin, siteActivity)
 app.get('/suspicious-activity', verifyAdmin, suspiciousActivity)
+app.post('/edit-message-state', verifyAdmin, ...validateEdit, editMessageState)
 
 app.listen(port)

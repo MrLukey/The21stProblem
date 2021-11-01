@@ -3,7 +3,7 @@ import {Nav, Navbar} from "react-bootstrap";
 
 const SideBarNav = (props) => {
 
-    function setView(view) {
+    const setView = (view) => {
         props.setActiveView(view)
     }
 
@@ -15,7 +15,6 @@ const SideBarNav = (props) => {
                <button className="btn nav-item nav-link" onClick={() => setView('messages')}>Messages</button>
                <button className="btn nav-item nav-link" onClick={() => setView('')}>Sign Ups</button>
                <button className="btn nav-item nav-link" onClick={() => setView('')}>Actions</button>
-               <button className="btn nav-item nav-link" onClick={() => setView('')}>Else</button>
            </Nav>
        </Navbar>
     )
