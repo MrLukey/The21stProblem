@@ -85,7 +85,7 @@ const SignUpView = (props) => {
                     stateToChange="seen_by_admin"
                     newState={1} />
                 <SignUpAccordion
-                    eventKey={0}
+                    eventKey={-1}
                     signUps={oldUsers}
                     signUpGroup="Users"
                     editSignUpState={editSignUpState}
