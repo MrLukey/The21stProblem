@@ -11,7 +11,7 @@ const {validateAdminLogin, adminLogin} = require('./CustomModules/Routes/AdminLo
 const {validateSignUpRequest, getSignUps} = require('./CustomModules/Routes/GetSignUps')
 const {validateMessageRequest, getMessages} = require('./CustomModules/Routes/GetMessages')
 const {validateSiteActivityRequest, getSiteActivity} = require('./CustomModules/Routes/GetSiteActivity')
-const {suspiciousActivity} = require('./CustomModules/Routes/SuspiciousActivity')
+const {validateSuspiciousActivityRequest, getSuspiciousActivity} = require('./CustomModules/Routes/GetSuspiciousActivity')
 const {validateMessageEdit, editMessageState} = require('./CustomModules/Routes/EditMessageState')
 const {validateSignUpEdit, editSignUpState} = require('./CustomModules/Routes/EditSignUpState')
 
@@ -59,7 +59,7 @@ app.get('/verify-admin', verifyAdmin, async (request, response) => {return respo
 app.post('/sign-ups', ...validateSignUpRequest, getSignUps)
 app.post('/messages', ...validateMessageRequest, getMessages)
 app.post('/site-activity', ...validateSiteActivityRequest, getSiteActivity)
-app.get('/suspicious-activity', suspiciousActivity)
+app.post('/suspicious-activity', ...validateSuspiciousActivityRequest, getSuspiciousActivity)
 app.post('/edit-message-state', ...validateMessageEdit, editMessageState)
 app.post('/edit-sign-up-state', ...validateSignUpEdit, editSignUpState)
 
