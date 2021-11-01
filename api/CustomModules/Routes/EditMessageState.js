@@ -1,7 +1,7 @@
 const {body, validationResult} = require('express-validator')
 const {getDBConnection, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 
-const validateEdit = [
+const validateMessageEdit = [
     body('messageID').notEmpty().isNumeric().isLength({min:1, max:11}).trim().escape(),
     body('stateToChange').notEmpty().isString().isLength({min:1, max:25}).trim().escape(),
     body('newState').notEmpty().isNumeric().isLength({min: 1, max: 1}).matches('[0|1]').trim().escape(),
@@ -25,6 +25,6 @@ const editMessageState = async (request, response) => {
 }
 
 module.exports = {
-    validateEdit: validateEdit,
+    validateMessageEdit: validateMessageEdit,
     editMessageState: editMessageState
 }
