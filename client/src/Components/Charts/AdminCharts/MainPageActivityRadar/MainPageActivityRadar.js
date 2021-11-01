@@ -32,11 +32,11 @@ const MainPageActivityRadar = (props) => {
             page: 'What To Do',
             pageLoads: 0
         }
-        const limit = new Date('22/10/2021')
-        const otherDate = new Date('23/10/2021')
-        console.log(new Date('22/10/2021').valueOf() < new Date('23/10/2021').valueOf())
-        props.allSiteActivity.map(day => console.log(day.date))
-        console.log(props.allSiteActivity)
+        // const limit = new Date('22/10/2021')
+        // const otherDate = new Date('23/10/2021')
+        // console.log(new Date('22/10/2021').valueOf() < new Date('23/10/2021').valueOf())
+        // props.allSiteActivity.map(day => console.log(day.date))
+        // console.log(props.allSiteActivity)
         const data = props.allSiteActivity
         data.forEach(day => {
             cover.pageLoads += day.cover
