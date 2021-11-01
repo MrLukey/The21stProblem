@@ -18,7 +18,7 @@ const editMessageState = async (request, response) => {
         await connection.query(`UPDATE messages SET ` + request.body.stateToChange + ` = ` + request.body.newState
             + ` WHERE id = ` + request.body.messageID + `;`)
         connection.end()
-        response.sendStatus(200)
+        return response.sendStatus(200)
     } catch (exception){
         return response.sendStatus(500)
     }

@@ -5,7 +5,7 @@ const PasswordInput = (props) => {
 
     const handlePasswordInput = (evt) => {
         props.setPassword(evt.target.value)
-        if (evt.target.value.length > 8){
+        if (evt.target.value.length >= 8){
             props.setPasswordValid(' is-valid')
         }
     }

@@ -5,7 +5,7 @@ const MessagesAccordion = (props) => {
 
     return (
         <Accordion.Item eventKey={props.eventKey}>
-            <Accordion.Header>{props.messageGroup}</Accordion.Header>
+            <Accordion.Header>{props.messageGroup} ({props.messages.filter(message => message).length})</Accordion.Header>
             <Accordion.Body >
                 <Accordion>
                     {props.messages.map(message =>
