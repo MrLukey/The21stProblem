@@ -6,6 +6,15 @@ const AdminDataTimeframeNav = (props) => {
     const [rangeSelected, setRangeSelected] = useState('today')
     const [customDatesEnabled, setCustomDatesEnabled] = useState(false)
 
+    const setToAll = () => {
+        setRangeSelected('all')
+        setCustomDatesEnabled(false)
+        const today = new Date()
+        const beforeProjectLive = new Date('01/11/2021')
+        props.setStartDate(beforeProjectLive.toLocaleDateString('en-GB'))
+        props.setEndDate(today.toLocaleDateString('en-GB'))
+    }
+
     const setToLastYear = () => {
         setRangeSelected('lastYear')
         setCustomDatesEnabled(false)
@@ -72,6 +81,7 @@ const AdminDataTimeframeNav = (props) => {
     return (
         <Navbar className="d-flex flex-row flex-nowrap justify-content-center" bg="dark" variant="dark">
             <Nav>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'all' ? ' active' : '')} onClick={setToAll}>All</button>
                 <button className={"btn nav-item nav-link" + (rangeSelected === 'lastYear' ? ' active' : '')} onClick={setToLastYear}>Last Year</button>
                 <button className={"btn nav-item nav-link" + (rangeSelected === 'lastQuarter' ? ' active' : '')} onClick={setToLastQuarter}>Last Quarter</button>
                 <button className={"btn nav-item nav-link" + (rangeSelected === 'lastMonth' ? ' active' : '')} onClick={setToLastMonth}>Last Month</button>
