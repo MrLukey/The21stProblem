@@ -1,26 +1,25 @@
 import React from "react";
-import {Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 
-const SideBarNav = () => {
+const SideBarNav = (props) => {
+
+    const viewMessages = () => {
+        props.setActiveView('messages')
+    }
+
+    const clearView = () => {
+        props.setActiveView('')
+    }
+
     return (
-       <Navbar className="d-flex flex-column flex-nowrap align-items-start w-25 px-3" bg="dark" variant="dark">
+       <Navbar className="d-flex flex-column flex-nowrap align-items-start vh-100 w-25 px-3" bg="dark" variant="dark">
            <Navbar.Brand>Admin Page</Navbar.Brand>
-           <Nav className="d-flex flex-column flex-nowrap">
-               {/*<Nav.Link href="problem">The Problem</Nav.Link>*/}
-               {/*<Nav.Link href="solution">The Solution</Nav.Link>*/}
-               {/*<Nav.Link href="new-world">A New World</Nav.Link>*/}
-               {/*<Nav.Link href="what-to-do">What To Do Now</Nav.Link>*/}
-               {/*<a className="nav-link" href={pdfVersion} download="the-21st-problem.pdf">Download PDF</a>*/}
-               {/*<NavDropdown title="More" id="basic-nav-dropdown">*/}
-               {/*    <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Item href="solution-data">Solution Data</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Item href="#" disabled={true}>New World Data</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Item href="references">References</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Divider />*/}
-               {/*    <NavDropdown.Item href="#" disabled={true}>About</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Item href="contact">Contact</NavDropdown.Item>*/}
-               {/*    <NavDropdown.Item href="sign-up">Sign Up</NavDropdown.Item>*/}
-               {/*</NavDropdown>*/}
+           <Nav className="d-flex flex-column flex-nowrap align-items-start">
+               <button className="btn nav-item nav-link" onClick={clearView}>Site Activity</button>
+               <button className="btn nav-item nav-link" onClick={viewMessages}>Messages</button>
+               <button className="btn nav-item nav-link" onClick={clearView}>Sign Ups</button>
+               <button className="btn nav-item nav-link" onClick={clearView}>Actions</button>
+               <button className="btn nav-item nav-link" onClick={clearView}>Else</button>
            </Nav>
        </Navbar>
     )

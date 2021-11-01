@@ -1,13 +1,16 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
 import ActivityView from "../../AdminViews/ActivityView/ActivityView";
+import UserMessagesView from "../../AdminViews/UserMessagesView/UserMessagesView";
 
 const AdminDashboardPage = (props) => {
 
     const history = useHistory()
-    const setNavDisplay = props.setNavDisplay
+    const [activeView, setActiveView] = useState('')
 
+
+    const setNavDisplay = props.setNavDisplay
     useEffect(() => {
         setNavDisplay('d-none')
         const url = 'http://localhost:3001/verify-admin'
@@ -22,7 +25,7 @@ const AdminDashboardPage = (props) => {
                 }
             })
             .catch(error => error)
-    }, [setNavDisplay, history])
+    }, [setNavDisplay,history])
 
     useEffect(() => {
         const url = 'http://localhost:3001/log-page-load'
@@ -40,12 +43,9 @@ const AdminDashboardPage = (props) => {
 
     return (
         <section className="d-flex flex-row flex-nowrap">
-            <SideBarNav />
-            <div className="bg-light d-flex flex-column flex-nowrap w-75 vh-100">
-                {/*<h3>Some english here for google to fucking figure it out</h3>*/}
-                <div className="d-flex flex-row flex-nowrap h-25 w-75">
-                    <ActivityView />
-                </div>
+            <SideBarNav setActiveView={setActiveView} />
+            <div className="bg-light d-flex flex-column flex-nowrap w-75">
+                <UserMessagesView activeView={activeView} />
             </div>
         </section>
     )
