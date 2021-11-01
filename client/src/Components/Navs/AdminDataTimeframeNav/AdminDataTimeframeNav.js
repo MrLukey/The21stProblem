@@ -3,9 +3,11 @@ import {Nav, Navbar} from "react-bootstrap";
 
 const AdminDataTimeframeNav = (props) => {
 
+    const [rangeSelected, setRangeSelected] = useState('today')
     const [customDatesEnabled, setCustomDatesEnabled] = useState(false)
 
     const setToLastYear = () => {
+        setRangeSelected('lastYear')
         setCustomDatesEnabled(false)
         const today = new Date()
         const lastYear = new Date()
@@ -15,6 +17,7 @@ const AdminDataTimeframeNav = (props) => {
     }
 
     const setToLastQuarter = () => {
+        setRangeSelected('lastQuarter')
         setCustomDatesEnabled(false)
         const today = new Date()
         const threeMonthsAgo = new Date()
@@ -24,6 +27,7 @@ const AdminDataTimeframeNav = (props) => {
     }
 
     const setToLastMonth = () => {
+        setRangeSelected('lastMonth')
         setCustomDatesEnabled(false)
         const today = new Date()
         const oneMonthAgo = new Date()
@@ -33,20 +37,26 @@ const AdminDataTimeframeNav = (props) => {
     }
 
     const setToLastWeek = () => {
+        setRangeSelected('lastWeek')
         setCustomDatesEnabled(false)
         const today = new Date()
         const oneWeekAgo = new Date()
         oneWeekAgo.setDate(today.getDate() - 7);
         props.setStartDate(oneWeekAgo.toLocaleDateString('en-GB'))
         props.setEndDate(today.toLocaleDateString('en-GB'))
-        console.log(oneWeekAgo.toLocaleDateString('en-GB'))
     }
 
     const setToToday = () => {
+        setRangeSelected('today')
         setCustomDatesEnabled(false)
         const today = new Date().toLocaleDateString('en-GB')
         props.setStartDate(today)
         props.setEndDate(today)
+    }
+
+    const enableCustomDates = () => {
+        setRangeSelected('custom')
+        setCustomDatesEnabled(true)
     }
 
     const updateStartDate = (evt) => {
@@ -59,19 +69,15 @@ const AdminDataTimeframeNav = (props) => {
         props.setEndDate(date.toLocaleDateString('en-GB'))
     }
 
-    const enableCustomDates = () => {
-        setCustomDatesEnabled(true)
-    }
-
     return (
         <Navbar className="d-flex flex-row flex-nowrap justify-content-center" bg="dark" variant="dark">
             <Nav>
-                <button className="btn nav-item nav-link" onClick={setToLastYear}>Last Year</button>
-                <button className="btn nav-item nav-link" onClick={setToLastQuarter}>Last Quarter</button>
-                <button className="btn nav-item nav-link" onClick={setToLastMonth}>Last Month</button>
-                <button className="btn nav-item nav-link" onClick={setToLastWeek}>Last Week</button>
-                <button className="btn nav-item nav-link" onClick={setToToday}>Today</button>
-                <button className="btn nav-item nav-link" onClick={enableCustomDates}>Custom</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'lastYear' ? ' active' : '')} onClick={setToLastYear}>Last Year</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'lastQuarter' ? ' active' : '')} onClick={setToLastQuarter}>Last Quarter</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'lastMonth' ? ' active' : '')} onClick={setToLastMonth}>Last Month</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'lastWeek' ? ' active' : '')} onClick={setToLastWeek}>Last Week</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'today' ? ' active' : '')} onClick={setToToday}>Today</button>
+                <button className={"btn nav-item nav-link" + (rangeSelected === 'custom' ? ' active' : '')} onClick={enableCustomDates}>Custom</button>
                 <Nav className={customDatesEnabled ? '' : 'd-none'}>
                     <input className="form-control-sm nav-item" type="date" onChange={updateStartDate} />
                     <input className="form-control-sm nav-item" type="date" onChange={updateEndDate} />

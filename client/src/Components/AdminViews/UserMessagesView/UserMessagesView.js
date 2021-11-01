@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
-import {Accordion, Nav, Navbar} from "react-bootstrap";
+import {Accordion} from "react-bootstrap";
 import MessagesAccordion from "../../Accordions/MessagesAccordion/MessagesAccordion";
 import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTimeframeNav";
 
 const UserMessagesView = (props) => {
-    const [allMessages, setAllMessages] = useState([])
     const [unreadMessages, setUnreadMessages] = useState([])
     const [readMessages, setReadMessages] = useState([])
     const [repliedMessages, setRepliedMessages] = useState([])
     const [archivedMessages, setArchivedMessages] = useState([])
 
-    const [startDate, setStartDate] = useState('01/11/2021')
-    const [endDate, setEndDate] = useState('01/11/2021')
+    const today = new Date().toLocaleDateString('en-GB')
+    const [startDate, setStartDate] = useState(today)
+    const [endDate, setEndDate] = useState(today)
 
     const indexMessagesByID = (messages) => {
         const indexedMessages = []
@@ -34,9 +34,27 @@ const UserMessagesView = (props) => {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                setAllMessages(indexMessagesByID(data))
-            })
-            .catch(error => error)
+                const indexedMessages = indexMessagesByID(data)
+                const _unreadMessages = []
+                const _readMessages = []
+                const _repliedMessages = []
+                const _archivedMessages = []
+                indexedMessages.forEach(message => {
+                    if (message.seenByAdmin === 0){
+                        _unreadMessages[message.id] = message
+                    } else if (message.replySent === 0 && message.toDelete === 0){
+                        _readMessages[message.id] = message
+                    } else if (message.replySent === 1 && message.toDelete === 0){
+                        _repliedMessages[message.id] = message
+                    } else if (message.toDelete === 1){
+                        _archivedMessages[message.id] = message
+                    }
+                })
+                setUnreadMessages(_unreadMessages)
+                setReadMessages(_readMessages)
+                setRepliedMessages(_repliedMessages)
+                setArchivedMessages(_archivedMessages)
+            }).catch(error => error)
     }
 
     useEffect(() => {
@@ -62,29 +80,6 @@ const UserMessagesView = (props) => {
             })
             .catch(error => error)
     }
-
-    useEffect(() => {
-        const _unreadMessages = []
-        const _readMessages = []
-        const _repliedMessages = []
-        const _archivedMessages = []
-        console.log(allMessages)
-        allMessages.forEach(message => {
-            if (message.seenByAdmin === 0){
-                _unreadMessages[message.id] = message
-            } else if (message.replySent === 0 && message.toDelete === 0){
-                _readMessages[message.id] = message
-            } else if (message.replySent === 1 && message.toDelete === 0){
-                _repliedMessages[message.id] = message
-            } else if (message.toDelete === 1){
-                _archivedMessages[message.id] = message
-            }
-        })
-        setUnreadMessages(_unreadMessages)
-        setReadMessages(_readMessages)
-        setRepliedMessages(_repliedMessages)
-        setArchivedMessages(_archivedMessages)
-    }, [allMessages])
 
     const dataTimeframeProps = {startDate: startDate, setStartDate: setStartDate, endDate: endDate, setEndDate: setEndDate}
     return (
