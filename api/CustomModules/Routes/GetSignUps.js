@@ -21,12 +21,11 @@ const getSignUps = async (request, response) => {
         connection.end()
         return response.json(signUpData)
     } catch (exception){
-        console.log(exception)
         return response.sendStatus(500)
     }
 }
 
 module.exports = {
-    validateSignUpRequest:validateSignUpRequest,
+    validateSignUpRequest: validateSignUpRequest,
     getSignUps: getSignUps
 }
