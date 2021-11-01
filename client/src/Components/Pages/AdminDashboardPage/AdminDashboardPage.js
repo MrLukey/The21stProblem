@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom";
 import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
 import ActivityView from "../../AdminViews/ActivityView/ActivityView";
 import UserMessagesView from "../../AdminViews/UserMessagesView/UserMessagesView";
+import SignUpView from "../../AdminViews/SignUpView/SignUpView";
 
 const AdminDashboardPage = (props) => {
 
@@ -46,6 +47,7 @@ const AdminDashboardPage = (props) => {
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
             <div className="bg-light d-flex flex-column flex-nowrap w-100">
                 <UserMessagesView activeView={activeView} />
+                {/*<SignUpView activeView={activeView} />*/}
             </div>
         </section>
     )
