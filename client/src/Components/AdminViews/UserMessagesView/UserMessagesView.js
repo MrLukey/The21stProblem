@@ -2,8 +2,10 @@ import React, {useEffect, useState} from "react";
 import {Accordion} from "react-bootstrap";
 
 const UserMessagesView = (props) => {
-
-    const [allMessages, setAllMessage] = useState([])
+    const [unreadMessages, setUnreadMessages] = useState([])
+    const [readMessages, setReadMessages] = useState([])
+    const [repliedMessages, setRepliedMessages] = useState([])
+    const [archivedMessages, setArchivedMessages] = useState([])
 
     useEffect(() => {
         const url = 'http://localhost:3001/messages'
@@ -14,7 +16,10 @@ const UserMessagesView = (props) => {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                setAllMessage(data)
+                setUnreadMessages(data.filter(message => message.seenByAdmin === 0))
+                setReadMessages(data.filter(message => message.seenByAdmin === 1 && message.replySent === 0 && message.toDelete === 0))
+                setRepliedMessages(data.filter(message => message.replySent === 1))
+                setArchivedMessages(data.filter(message => message.toDelete === 1))
             })
             .catch(error => error)
     }, [])
@@ -25,7 +30,7 @@ const UserMessagesView = (props) => {
                 <Accordion.Header>Unread Messages</Accordion.Header>
                 <Accordion.Body >
                     <Accordion>
-                        {allMessages.map(message =>
+                        {unreadMessages.map(message =>
                             <Accordion.Item key={message.id} eventKey={message.id}>
                                 <Accordion.Header>{message.firstName} {message.lastName}</Accordion.Header>
                                 <Accordion.Body>
@@ -44,7 +49,7 @@ const UserMessagesView = (props) => {
                 <Accordion.Header>Read Messages</Accordion.Header>
                 <Accordion.Body >
                     <Accordion>
-                        {allMessages.map(message =>
+                        {readMessages.map(message =>
                             <Accordion.Item key={message.id} eventKey={message.id}>
                                 <Accordion.Header>{message.firstName} {message.lastName}</Accordion.Header>
                                 <Accordion.Body>
@@ -63,7 +68,7 @@ const UserMessagesView = (props) => {
                 <Accordion.Header>Replied Messages</Accordion.Header>
                 <Accordion.Body >
                     <Accordion>
-                        {allMessages.map(message =>
+                        {repliedMessages.map(message =>
                             <Accordion.Item key={message.id} eventKey={message.id}>
                                 <Accordion.Header>{message.firstName} {message.lastName}</Accordion.Header>
                                 <Accordion.Body>
@@ -82,7 +87,7 @@ const UserMessagesView = (props) => {
                 <Accordion.Header>Archived Messages</Accordion.Header>
                 <Accordion.Body >
                     <Accordion>
-                        {allMessages.map(message =>
+                        {archivedMessages.map(message =>
                             <Accordion.Item key={message.id} eventKey={message.id}>
                                 <Accordion.Header>{message.firstName} {message.lastName}</Accordion.Header>
                                 <Accordion.Body>
