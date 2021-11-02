@@ -18,7 +18,6 @@ const SiteNav = (props) => {
                         <NavDropdown title="More" id="basic-nav-dropdown">
                             <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>
                             <NavDropdown.Item href="solution-data">Solution Data</NavDropdown.Item>
-                            <NavDropdown.Item href="#" disabled={true}>New World Data</NavDropdown.Item>
                             <NavDropdown.Item href="references">References</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="about">About</NavDropdown.Item>
