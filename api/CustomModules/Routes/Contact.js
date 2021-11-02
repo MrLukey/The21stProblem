@@ -23,7 +23,7 @@ const contact = [...validateContact, async (request, response) => {
             + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.message) + `', '` + todaysDate +
             `', '` + timeNow + `');`)
         connection.end()
-        response.sendStatus(200)
+        return response.sendStatus(200)
     } catch (exception){
         return response.sendStatus(500)
     }

@@ -23,7 +23,7 @@ const signUp = [...validateSignUp, async (request, response) => {
             + `', '` + request.body.email + `', '` + request.body.placeOfResidence + `', '` + capitaliseFirstLetter(request.body.profession)
             + `', '` + capitaliseFirstLetter(request.body.reasonForJoining) + `', '` + todaysDate + `');`)
         connection.end()
-        response.sendStatus(200)
+        return response.sendStatus(200)
     } catch (exception){
         if (exception.sqlState === '23000'){
             return response.sendStatus(403)
