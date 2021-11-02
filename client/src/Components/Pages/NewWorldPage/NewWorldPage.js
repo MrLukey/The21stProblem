@@ -1,26 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import RightImageHero from "../../Heroes/RightImageHero";
 import LeftImageHero from "../../Heroes/LeftImageHero";
 import CallToActionHero from "../../Heroes/CallToActionHero";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const NewWorldPage = () => {
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'new_world'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => console.log(error))
-    }, [])
-
     return (
         <section className="bg-dark">
+            <PageLogger page="new_world" />
             <RightImageHero
                 title="We evolved to adapt"
                 info="Instead of claw and fang, we have intelligence and community. Unlike other species, that take millions

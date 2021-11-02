@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Form} from "react-bootstrap";
 import FirstAndLastNameInput from "../../Inputs/FirstAndLastNameInput/FirstAndLastNameInput";
 import TextAreaInput from "../../Inputs/TextAreaInput/TextAreaInput";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
 import ReportSignUpModal from "../../Modals/ReportSignUpModal/ReportSignUpModal";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const ContactPage = () => {
 
@@ -71,22 +72,6 @@ const ContactPage = () => {
                  .catch(error => error)
          }
      }
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'contact'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => error)
-
-    }, [])
-
     const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName,
         firstNameValid: firstNameValid, setFirstNameValid: setFirstNameValid, secondNameValid: secondNameValid,
         setSecondNameValid: setSecondNameValid}
@@ -102,6 +87,7 @@ const ContactPage = () => {
 
     return (
         <section className="full-page d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="contact">
+            <PageLogger page="contact" />
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Get in touch</h3>
                 <FirstAndLastNameInput {...nameProps}/>

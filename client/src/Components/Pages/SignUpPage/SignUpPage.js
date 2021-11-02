@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Form} from "react-bootstrap";
 import FirstAndLastNameInput from "../../Inputs/FirstAndLastNameInput/FirstAndLastNameInput";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
@@ -7,6 +7,7 @@ import ProfessionInput from "../../Inputs/ProfessionInput/ProfessionInput";
 import ProfessionDetailsInput from "../../Inputs/ProfessionDetailsInput/ProfessionDetailsInput";
 import TextAreaInput from "../../Inputs/TextAreaInput/TextAreaInput";
 import ReportSignUpModal from "../../Modals/ReportSignUpModal/ReportSignUpModal";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const SignUpPage = () => {
     const [firstName, setFirstName] = useState('')
@@ -40,35 +41,35 @@ const SignUpPage = () => {
 
     const handleSubmit = (evt) => {
         let formValid = true;
-        if (firstNameValid !== ' is-valid'){
+        if (firstNameValid !== ' is-valid') {
             setFirstNameValid(' is-invalid')
             formValid = false
         }
-        if (secondNameValid !== ' is-valid'){
+        if (secondNameValid !== ' is-valid') {
             setSecondNameValid(' is-invalid')
             formValid = false
         }
-        if (emailValid !== ' is-valid'){
+        if (emailValid !== ' is-valid') {
             setEmailValid(' is-invalid')
             formValid = false
         }
-        if (residenceValid !== ' is-valid'){
+        if (residenceValid !== ' is-valid') {
             setResidenceValid(' is-invalid')
             formValid = false
         }
-        if (profession !== 'Other' && professionValid !== ' is-valid'){
+        if (profession !== 'Other' && professionValid !== ' is-valid') {
             setProfessionValid(' is-invalid')
             formValid = false
         }
-        if (profession === 'Other' && professionDetailsValid !== ' is-valid'){
+        if (profession === 'Other' && professionDetailsValid !== ' is-valid') {
             setProfessionalDetailsValid(' is-invalid')
             formValid = false
         }
-        if (reasonValid !== ' is-valid'){
+        if (reasonValid !== ' is-valid') {
             setReasonValid(' is-invalid')
             formValid = false
         }
-        if (formValid){
+        if (formValid) {
             const url = 'http://localhost:3001/sign-up'
             const requestOptions = {
                 method: 'POST',
@@ -84,13 +85,13 @@ const SignUpPage = () => {
             }
             fetch(url, requestOptions)
                 .then(response => {
-                    if (response.status === 403){
+                    if (response.status === 403) {
                         setModalText('We appreciate the enthusiasm, but you\'re already signed up!')
-                    } else if (response.status === 422){
+                    } else if (response.status === 422) {
                         setModalText('Trying something dodgy eh? We see you ^_^')
-                    } else if (response.status === 500){
+                    } else if (response.status === 500) {
                         setModalText('An unexpected database error occurred, please try submitting again.')
-                    } else if (response.status === 200){
+                    } else if (response.status === 200) {
                         setModalText('Welcome ' + firstName + ', information about collective action will be sent' +
                             ' to ' + email + ' soon.')
                     }
@@ -99,22 +100,6 @@ const SignUpPage = () => {
                 .catch(error => error)
         }
     }
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'sign_up'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => error)
-
-    }, [])
-
     const nameProps = {firstName: firstName, setFirstName: setFirstName, lastName: lastName, setLastName: setLastName,
         firstNameValid: firstNameValid, setFirstNameValid: setFirstNameValid, secondNameValid: secondNameValid,
         setSecondNameValid: setSecondNameValid}
@@ -143,6 +128,7 @@ const SignUpPage = () => {
 
     return (
         <section className="full-page d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark" id="signUp">
+            <PageLogger page="sign_up" />
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Sign up for more information</h3>
                 <FirstAndLastNameInput {...nameProps} />

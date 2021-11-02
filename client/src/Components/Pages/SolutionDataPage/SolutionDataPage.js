@@ -1,26 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import InfoGraphicCard from "../../Cards/InfoGraphicCard/InfoGraphicCard";
 import CallToActionHero from "../../Heroes/CallToActionHero";
 import infoGraphicData from './solutionDataInfoGraphics.json'
+import PageLogger from "../../PageLogger/PageLogger";
 
 const SolutionDataPage = () => {
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'solution_data'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => console.log(error))
-    }, [])
-
     return (
         <section className="bg-black">
+            <PageLogger page="solution_data" />
             {
                 infoGraphicData.info_graphics.map(infoGraphic =>
                     <InfoGraphicCard

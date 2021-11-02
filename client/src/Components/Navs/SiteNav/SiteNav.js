@@ -14,8 +14,8 @@ const SiteNav = (props) => {
             })
         }
         fetch(url, requestOptions)
-            .then(response => console.log(response))
-            .catch(error => console.log(error))
+            .then(response => response)
+            .catch(error => error)
     }
 
     return (
@@ -30,7 +30,7 @@ const SiteNav = (props) => {
                         <Nav.Link href="new-world">A New World</Nav.Link>
                         <Nav.Link href="what-to-do">What To Do Now</Nav.Link>
                         <a className="nav-link"
-                           href={pdfVersion} download="the-21st-problem.pdf"
+                           href={pdfVersion} download="the-21st-problem"
                            onClick={logPDFDownload}>Download PDF</a>
                         <NavDropdown title="More" id="basic-nav-dropdown">
                             <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>

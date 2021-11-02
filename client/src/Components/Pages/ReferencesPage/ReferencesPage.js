@@ -1,25 +1,12 @@
-import React, {useEffect} from "react";
+import React from "react";
 import referenceData from './references.json'
 import ReferenceCard from "../../Cards/ReferenceCard/ReferenceCard";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const ReferencesPage = () => {
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'refs'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => console.log(error))
-    }, [])
-
     return (
         <section className="bg-dark">
+            <PageLogger page="refs" />
             {
                 referenceData.references.map(ref =>
                     <ReferenceCard

@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom";
 import {Form} from "react-bootstrap";
 import EmailAddressInput from "../../Inputs/EmailAddressInput/EmailAddressInput";
 import PasswordInput from "../../Inputs/PasswordInput/PasswordInput";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const AdminLoginPage = (props) => {
 
@@ -51,19 +52,11 @@ const AdminLoginPage = (props) => {
     const setNavDisplay = props.setNavDisplay
     useEffect(() => {
         setNavDisplay('d-none')
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'admin_login'
-            })
-        }
-        fetch(url, requestOptions).catch()
     }, [setNavDisplay])
 
     return (
         <section className="d-flex flex-column flex-nowrap justify-content-center align-items-center bg-dark vh-100" id="signUp">
+            <PageLogger page="admin_login" />
             <Form className="col-12 col-lg-8">
                 <h3 className="card-title text-light text-muted text-center mb-3">Admin login</h3>
                 <EmailAddressInput {...emailProps} />

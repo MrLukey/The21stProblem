@@ -4,6 +4,7 @@ import SideBarNav from "../../Navs/SideBarNav/SideBarNav";
 import ActivityView from "../../AdminViews/ActivityView/ActivityView";
 import UserMessagesView from "../../AdminViews/UserMessagesView/UserMessagesView";
 import SignUpView from "../../AdminViews/SignUpView/SignUpView";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const AdminDashboardPage = (props) => {
 
@@ -28,22 +29,9 @@ const AdminDashboardPage = (props) => {
         //     .catch(error => error)
     }, [setNavDisplay,history])
 
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'admin_dashboard'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => error)
-    }, [])
-
     return (
         <section className="d-flex flex-row flex-nowrap">
+            <PageLogger page="admin_dashboard" />
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
             <div className="bg-light d-flex flex-column flex-nowrap w-100">
                 <ActivityView activeView={activeView} />

@@ -1,26 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import RightImageHero from "../../Heroes/RightImageHero";
 import LeftImageHero from "../../Heroes/LeftImageHero";
 import CallToActionHero from "../../Heroes/CallToActionHero";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const WhatToDoPage = () => {
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'what_to_do'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => console.log(error))
-    }, [])
-
     return (
         <section className="bg-dark">
+            <PageLogger page="what_to_do" />
             <RightImageHero
                 title="Leaders & influencers"
                 info="If you are in a position of power, whether it be political or social, you have the most important

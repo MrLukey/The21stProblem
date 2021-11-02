@@ -1,26 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import RightImageHero from "../../Heroes/RightImageHero";
 import LeftImageHero from "../../Heroes/LeftImageHero";
 import CallToActionHero from "../../Heroes/CallToActionHero";
+import PageLogger from "../../PageLogger/PageLogger";
 
 const SolutionPage = () => {
-
-    useEffect(() => {
-        const url = 'http://localhost:3001/log-page-load'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                page: 'solution'
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response)
-            .catch(error => console.log(error))
-    }, [])
-
     return (
         <section className="bg-dark">
+            <PageLogger page="solution" />
             <RightImageHero
                 title="We must utilise executive power"
                 info="The leaders of today are the last capable of making a significant impact on our situation. If they
