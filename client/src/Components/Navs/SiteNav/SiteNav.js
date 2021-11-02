@@ -3,6 +3,21 @@ import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import pdfVersion from './the-21st-problem.pdf'
 
 const SiteNav = (props) => {
+
+    const logPDFDownload = () => {
+        const url = 'http://localhost:3001/log-page-load'
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                page: 'pdf_download'
+            })
+        }
+        fetch(url, requestOptions)
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
+    }
+
     return (
         <Navbar bg="dark" variant="dark" expand="lg" className={props.navDisplay}>
             <Container>
@@ -14,7 +29,9 @@ const SiteNav = (props) => {
                         <Nav.Link href="solution">The Solution</Nav.Link>
                         <Nav.Link href="new-world">A New World</Nav.Link>
                         <Nav.Link href="what-to-do">What To Do Now</Nav.Link>
-                        <a className="nav-link" href={pdfVersion} download="the-21st-problem.pdf">Download PDF</a>
+                        <a className="nav-link"
+                           href={pdfVersion} download="the-21st-problem.pdf"
+                           onClick={logPDFDownload}>Download PDF</a>
                         <NavDropdown title="More" id="basic-nav-dropdown">
                             <NavDropdown.Item href="problem-data">Problem Data</NavDropdown.Item>
                             <NavDropdown.Item href="solution-data">Solution Data</NavDropdown.Item>

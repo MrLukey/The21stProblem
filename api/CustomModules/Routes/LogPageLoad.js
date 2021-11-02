@@ -1,7 +1,7 @@
 const {body, validationResult} = require('express-validator')
 const {getDBConnection, insertActivityRowForTodayIfDoesNotExist, logSuspiciousActivity} = require('../HelperFunctions/HelperFunctions')
 
-const validPages = 'cover|about|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_downloads|admin_login|admin_dashboard'
+const validPages = 'cover|about|problem|problem_data|solution|solution_data|new_world|new_world_data|what_to_do|sign_up|contact|refs|pdf_download|admin_login|admin_dashboard'
 const validatePageToLog = body('page', 'Hacking Logged').isString().matches(validPages).trim().escape()
 const logPageLoad = [validatePageToLog, async (request, response ) => {
     const todaysDate = new Date().toLocaleDateString('en-GB')
