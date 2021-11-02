@@ -14,7 +14,7 @@ const getMessages = async (request, response) => {
         }
         const connection = await getDBConnection()
         const messageData = await connection.query(`SELECT id, first_name AS firstName, last_name AS lastName, 
-        email,message, date, time, seen_by_admin AS seenByAdmin, reply_sent AS replySent, to_delete AS toDelete 
+        email, subject, message, date, time, seen_by_admin AS seenByAdmin, reply_sent AS replySent, to_delete AS toDelete 
         FROM messages WHERE STR_TO_DATE(date, '%d/%m/%Y') >= STR_TO_DATE('` + request.body.startDate + `', '%d/%m/%Y') 
                       AND STR_TO_DATE(date, '%d/%m/%Y') <= STR_TO_DATE('` + request.body.endDate + `', '%d/%m/%Y')`)
         connection.end()

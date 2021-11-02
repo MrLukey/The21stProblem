@@ -5,6 +5,7 @@ const validateContact = [
     body('firstName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
     body('lastName').notEmpty().isLength({min:1, max:35}).isString().trim().escape(),
     body('email').optional({checkFalsy: true}).notEmpty().isLength({min:5, max:255}).isEmail().trim().escape(),
+    body('subject').notEmpty().isLength({min:1, max:70}).isString().trim().escape(),
     body('message').notEmpty().isLength({min:1, max:500}).isString().trim().escape()
 ]
 
@@ -18,10 +19,10 @@ const contact = [...validateContact, async (request, response) => {
             return response.sendStatus(422)
         }
         const connection = await getDBConnection()
-        await connection.query(`INSERT INTO messages (first_name, last_name, email, message, date, time) VALUES ('`
+        await connection.query(`INSERT INTO messages (first_name, last_name, email, subject, message, date, time) VALUES ('`
             + capitaliseFirstLetter(request.body.firstName) + `', '` + capitaliseFirstLetter(request.body.lastName)
-            + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.message) + `', '` + todaysDate +
-            `', '` + timeNow + `');`)
+            + `', '` + request.body.email + `', '` + capitaliseFirstLetter(request.body.subject) + `', '`
+            + capitaliseFirstLetter(request.body.message) + `', '` + todaysDate + `', '` + timeNow + `');`)
         connection.end()
         return response.sendStatus(200)
     } catch (exception){

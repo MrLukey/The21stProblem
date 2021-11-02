@@ -14,6 +14,7 @@ const MessagesAccordion = (props) => {
                             <Accordion.Body>
                                 <p>{message.message}</p>
                                 <button className="btn btn-primary" onClick={() => props.editMessageState(message.id, props.stateToChange, props.newState)}>{props.editMessageButton}</button>
+                                <a href = "mailto: abc@example.com">Send Email</a>
                             </Accordion.Body>
                         </Accordion.Item>
                     )}
