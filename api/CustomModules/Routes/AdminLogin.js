@@ -30,7 +30,6 @@ const adminLogin = async (request, response, next) => {
             return response.sendStatus(403)
         }
     } catch(exception) {
-        console.log(exception)
         return response.sendStatus(500)
     }
 }

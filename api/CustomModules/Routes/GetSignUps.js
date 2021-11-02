@@ -19,7 +19,7 @@ const getSignUps = async (request, response) => {
         WHERE STR_TO_DATE(date_joined, '%d/%m/%Y') >= STR_TO_DATE('` + request.body.startDate + `', '%d/%m/%Y')
         AND STR_TO_DATE(date_joined, '%d/%m/%Y') <= STR_TO_DATE('` + request.body.endDate + `', '%d/%m/%Y')`)
         connection.end()
-        return response.json(signUpData)
+        return response.json(signUpData).status(200)
     } catch (exception){
         return response.sendStatus(500)
     }
