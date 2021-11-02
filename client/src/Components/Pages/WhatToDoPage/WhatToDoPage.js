@@ -32,7 +32,7 @@ const WhatToDoPage = () => {
                 this issue is a sure fire way to earn the respect of all that will follow, and cement your place on the
                 right side of history."
                 image="assets/images/influencers.jpg"
-                alt="" />
+                alt="A crowd clamour to take pictures of an unseen celebrity." />
             <LeftImageHero
                 title="Climate scientists"
                 info="Stop beating around the bush! I appreciate that the evidence for a cascade in motion is not
@@ -44,7 +44,7 @@ const WhatToDoPage = () => {
                 labelled as an alarmist, remember it is better to be wrong and face judgement, than be right and face
                 extinction."
                 image="assets/images/scientists.jpg"
-                alt="" />
+                alt="Scientists protesting against climate change." />
             <RightImageHero
                 title="Everyone"
                 info="Get involved! There is no aspect of our civilisation that will not decline in the face of climate
@@ -58,7 +58,7 @@ const WhatToDoPage = () => {
                 future and what can done to secure them. Whether they be a government, a company or an individual,
                 you must not let another decide your fate without first considering you."
                 image="assets/images/climateProtest.jpg"
-                alt="" />
+                alt="A climate protest. A young woman climbs a lamp post holding a sign that reads 'We are the change'." />
             <CallToActionHero
                 title="We must work together"
                 info="Our greatest resource is ourselves. We must put aside our differences and work together on saving
@@ -66,7 +66,7 @@ const WhatToDoPage = () => {
                 you would like to offer any feedback on the site, feel free to contact us."
                 buttonOneText="Contact"
                 buttonOneVariant="secondary"
-                buttonOneHref="#"
+                buttonOneHref="contact"
                 buttonTwoText="Sign Up"
                 buttonTwoVariant="light"
                 buttonTwoHref="sign-up" />

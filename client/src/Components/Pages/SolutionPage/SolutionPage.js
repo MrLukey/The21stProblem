@@ -27,7 +27,7 @@ const SolutionPage = () => {
                 do not act, the collapse of our civilisation is assured. They must remember their purpose, and think deeply
                 on what is important in life."
                 image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/UN_General_Assembly_hall.jpg/1200px-UN_General_Assembly_hall.jpg"
-                alt="" />
+                alt="The UN General Assembly hall." />
             <LeftImageHero
                 title="We must decouple"
                 info="The root of the problem is a tight coupling between human activity and environmental health: human
@@ -35,17 +35,18 @@ const SolutionPage = () => {
                 this relationship, allowing human activity to continue independent of environmental conditions, and environmental
                 health to recover without impediment from human activity."
                 image="https://www.nasa.gov/images/content/386905main_moorhead_tm5_2009253.jpg"
-                alt="" />
+                alt="NASA image of farmland covering the land." />
             <RightImageHero
                 title="Separation of Concerns is required"
                 info="Separation of Concerns (SoC) is a design principle used in computer science to ensure that a system
                 is resilient to failures. It involves identifying and removing interdependencies between subsystems, ensuring
                 that as much as possible each can operate independently from the rest. Applying it to society at scale would
-                mean that each city produces its own food and energy, generating minimal waste in the process. A failure
-                of global supply chains would not significantly impact the city, and outside of its perimeter wild environments
-                would be free to reclaim the land."
+                mean that each city produces its own food, energy, and most primary resources, generating minimal waste
+                in the process. A failure of global supply chains would not significantly impact the city, and outside
+                of its perimeter wild environments would be free to reclaim the land."
                 image=" https://images.adsttc.com/media/images/5db7/00a2/3312/fd22/3f00/0b7a/large_jpg/Credit_The_Big_Picture_(4).jpg?1572274326"
-                alt="" />
+                alt="A futuristic city full of trees and crisscrossed with canals. Outside of the city a dense and healthy
+                forest covers the land, making the city appear as an island of glass and steel in a sea of green." />
             <LeftImageHero
                 title="Vertical farms must become the default"
                 info="Vertical agriculture requires a fraction of the land, 5% of the water and, by allowing for artificial
@@ -58,7 +59,7 @@ const SolutionPage = () => {
                 old. They also offer long lasting resilience to climate change, ensuring that no matter the state of the
                 environment, humanity will have food to eat."
                 image="https://www.usda.gov/sites/default/files/ocs-vertical-farming-blog-081418.jpg"
-                alt="" />
+                alt="A vertical farm bursting with healthy looking sheleves of produce." />
             <RightImageHero
                 title="Advanced nuclear is the most reliable energy solution"
                 info="Unfortunately, we have done enough damage to make relying on renewable energy a dangerous proposition.
@@ -72,7 +73,7 @@ const SolutionPage = () => {
                 is eventually sent to storage, and what remains can be geologically disposed of, ensuring the material
                 doesn't surface for millions of years."
                 image="https://images.ctfassets.net/cnu0m8re1exe/4TQUSloIhxnH3vIdcAYe2M/cbc94db486f5675131dd095c427f08b4/G-nuclear10-molten-salt-reactor.png"
-                alt="" />
+                alt="A diagram of a molten salt reactor." />
             <LeftImageHero
                 title="Full electrification is needed"
                 info="A common and misleading statistic often quoted in the media is the proportion of electric
@@ -84,7 +85,7 @@ const SolutionPage = () => {
                 option for solving the climate crisis, providing stable generation, independent from the state of the
                 environment, in quantities capable of satisfying vastly increased demand."
                 image="assets/images/lightning.jpg"
-                alt="" />
+                alt="A huge bolt of lightning lights up a darkened sky." />
             <RightImageHero
                 title="The nutrient loop must be closed"
                 info="As well as greenhouse gasses, aerosols and pollutants, we must strictly manage our influence on the
@@ -95,7 +96,7 @@ const SolutionPage = () => {
                 life or natural process, allowing it to become feed for other species or deteriorate harmlessly into the
                 environment."
                 image="assets/images/forest2.jpg"
-                alt="" />
+                alt="A torrent of water flows through a dense and healthy looking forest." />
             <LeftImageHero
                 title="SoC will ensure long term prosperity"
                 info="If we do not change the architecture of the global economy, and supply chains are significantly
@@ -105,7 +106,7 @@ const SolutionPage = () => {
                 restoration of Earth, ensuring that every nation has access to food and energy even as global conditions
                 deteriorate."
                 image="assets/images/earthFromSpace.jpg"
-                alt="" />
+                alt="Earth from space, showing the beauty of the world and blackness of the cosmos." />
             <CallToActionHero
                 title="But this is just the beginning"
                 info="Risk and opportunity exist in tandem. Though our motivations may be self serving, scrabbling to ensure

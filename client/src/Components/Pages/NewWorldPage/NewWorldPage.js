@@ -30,7 +30,8 @@ const NewWorldPage = () => {
                 life; we can adapt many times in a single generation. Of all the large animals alive today, we have the
                 best chance of surviving climate change."
                 image="https://i.redd.it/8tc2x21aqdi31.jpg"
-                alt="" />
+                alt="A precarious looking settlement built atop a thin slice of rock, with a winding path that leads
+                through clouds, up a mountain, to end at the settlement." />
             <LeftImageHero
                 title="We are the great evolver"
                 info="Throughout our history, we have dramatically changed any environment we found ourselves in. This
@@ -41,7 +42,7 @@ const NewWorldPage = () => {
                 of nature, we can begin to see ourselves as more than just another creature, but as a primary driver of
                 evolution, a producer of intelligent life in the universe."
                 image="assets/images/machuPicchu.jpg"
-                alt="" />
+                alt="Machu Picchu in the daylight." />
             <RightImageHero
                 title="This is the Anthropocene"
                 info="Few appreciate the significance of naming a geological era after a life form. It means that a
@@ -51,7 +52,7 @@ const NewWorldPage = () => {
                 we shall prevail, remember it was only ignorance and greed that led us to this place, imagine what will
                 happen when the rest of humanity joins in the fight."
                 image="assets/images/city.jpg"
-                alt="" />
+                alt="A large city at night." />
             <LeftImageHero
                 title="We can build better than Earth"
                 info="For all of its history, life on Earth has been constrained by three physical limitations; energy,
@@ -64,7 +65,7 @@ const NewWorldPage = () => {
                 pre-industrial world, but after we can restore the pre-historic and continue on, to define a new
                 measure of abundance."
                 image="https://images.unsplash.com/photo-1620757482070-4994c580db7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80"
-                alt="" />
+                alt="Earth not as a pale blue dot, but as a shining green marble of flourishing life." />
             <RightImageHero
                 title="There are no limits"
                 info="When it comes to humanity, most of the limitations placed on life do not apply. We have conquered
@@ -77,7 +78,8 @@ const NewWorldPage = () => {
                 and depleting it. Truly, we cannot imagine what the result of such a system could be, but the
                 responsibility for its creation falls to us."
                 image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Spacecolony3edit.jpeg/1024px-Spacecolony3edit.jpeg"
-                alt="" />
+                alt="An example of space worthy ecosystems, where people tend land that rotates around a column in
+                space, simulating gravity with centrifugal force." />
             <CallToActionHero
                 title="But we must act now"
                 info="This future may be possible, but it is by no means certain. We must set about achieving Separation
