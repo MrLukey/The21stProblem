@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import {Container} from "react-bootstrap";
 
-const data = [
+const chartData = [
     {
         date: '2000-01',
         uv: 4000,
@@ -75,11 +75,34 @@ const data = [
         pv: 4800,
         amt: 2181,
     },
+    {
+        date: '2001-01',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+    },
+    {
+        date: '2001-02',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+    },
+    {
+        date: '2001-03',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+    },
+    {
+        date: '2001-04',
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+    },
 ];
 
 const monthTickFormatter = (tick) => {
     const date = new Date(tick);
-
     return date.getMonth() + 1;
 };
 
@@ -105,16 +128,17 @@ const renderQuarterTick = (tickProps) => {
     return null;
 }
 
+const monthTicker = true
+
 class CustomBarChart extends PureComponent {
-    //static demoUrl = 'https://codesandbox.io/s/bar-chart-with-double-xaxis-dfug7';
 
     render() {
         return (
             <Container width="100%" height="100%">
                 <BarChart
-                    width={500}
-                    height={300}
-                    data={data}
+                    width={this.props.chartWidth}
+                    height={this.props.chartHeight}
+                    data={chartData}
                     margin={{
                         top: 5,
                         right: 30,
@@ -123,17 +147,17 @@ class CustomBarChart extends PureComponent {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" tickFormatter={monthTickFormatter} />
-                    <XAxis
-                        dataKey="date"
-                        axisLine={false}
-                        tickLine={false}
-                        interval={0}
-                        tick={renderQuarterTick}
-                        height={1}
-                        scale="band"
-                        xAxisId="quarter"
-                    />
+                    {monthTicker ? <XAxis dataKey="date" tickFormatter={monthTickFormatter}/> : ''}
+                    {/*<XAxis*/}
+                    {/*    dataKey="date"*/}
+                    {/*    axisLine={false}*/}
+                    {/*    tickLine={false}*/}
+                    {/*    interval={0}*/}
+                    {/*    tick={renderQuarterTick}*/}
+                    {/*    height={1}*/}
+                    {/*    scale="band"*/}
+                    {/*    xAxisId="quarter"*/}
+                    {/*/>*/}
                     <YAxis />
                     <Tooltip />
                     <Legend />
