@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from "react";
-import MainPageActivityRadar from "../../Charts/AdminCharts/MainPageActivityRadar/MainPageActivityRadar";
-import DataPageActivityRadar from "../../Charts/AdminCharts/DataPageActivityRadar/DataPageActivityRadar";
+// import MainPageActivityRadar from "../../Charts/AdminCharts/MainPageActivityRadar/MainPageActivityRadar";
+// import DataPageActivityRadar from "../../Charts/AdminCharts/DataPageActivityRadar/DataPageActivityRadar";
 import CustomBarChart from "../../Charts/CustomBarChart/CustomBarChart";
 import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTimeframeNav";
 
 const ActivityView = (props) => {
 
     const [allSiteActivity, setAllSiteActivity] = useState([])
-    const [timeFrame, setTimeFrame] = useState('all')
+    // const [timeFrame, setTimeFrame] = useState('all')
 
     const today = new Date().toLocaleDateString('en-GB')
     const [startDate, setStartDate] = useState(today)
     const [endDate, setEndDate] = useState(today)
 
-    const getSiteActivity = () => {
+    useEffect(() => {
         const url = 'http://localhost:3001/site-activity'
         const requestOptions = {
             method: 'POST',
@@ -30,10 +30,7 @@ const ActivityView = (props) => {
                 setAllSiteActivity(data)
             })
             .catch(error => error)
-    }
-    useEffect(() => {
-        getSiteActivity()
-    }, [startDate, endDate])
+    }, [startDate, endDate, setAllSiteActivity])
 
     const dataTimeframeProps = {startDate: startDate, setStartDate: setStartDate, endDate: endDate, setEndDate: setEndDate}
     const activityBarChartProps = {chartWidth: 800, chartHeight: 500}

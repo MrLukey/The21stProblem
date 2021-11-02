@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {Container} from "react-bootstrap";
 
 const chartData = [
@@ -106,27 +106,27 @@ const monthTickFormatter = (tick) => {
     return date.getMonth() + 1;
 };
 
-const renderQuarterTick = (tickProps) => {
-    const { x, y, payload } = tickProps;
-    const { value, offset } = payload;
-    const date = new Date(value);
-    const month = date.getMonth();
-    const quarterNo = Math.floor(month / 3) + 1;
-    const isMidMonth = month % 3 === 1;
-
-    if (month % 3 === 1) {
-        return <text x={x} y={y - 4} textAnchor="middle">{`Q${quarterNo}`}</text>;
-    }
-
-    const isLast = month === 11;
-
-    if (month % 3 === 0 || isLast) {
-        const pathX = Math.floor(isLast ? x + offset : x - offset) + 0.5;
-
-        return <path d={`M${pathX},${y - 4}v${-35}`} stroke="red" />;
-    }
-    return null;
-}
+// const renderQuarterTick = (tickProps) => {
+//     const { x, y, payload } = tickProps;
+//     const { value, offset } = payload;
+//     const date = new Date(value);
+//     const month = date.getMonth();
+//     const quarterNo = Math.floor(month / 3) + 1;
+//     const isMidMonth = month % 3 === 1;
+//
+//     if (month % 3 === 1) {
+//         return <text x={x} y={y - 4} textAnchor="middle">{`Q${quarterNo}`}</text>;
+//     }
+//
+//     const isLast = month === 11;
+//
+//     if (month % 3 === 0 || isLast) {
+//         const pathX = Math.floor(isLast ? x + offset : x - offset) + 0.5;
+//
+//         return <path d={`M${pathX},${y - 4}v${-35}`} stroke="red" />;
+//     }
+//     return null;
+// }
 
 const monthTicker = true
 
