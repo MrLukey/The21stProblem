@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
-import pdfVersion from './test.txt'
+import pdfVersion from './the-21st-problem.pdf'
 
 const SiteNav = (props) => {
     return (
