@@ -55,7 +55,7 @@ const WhatToDoPage = () => {
                 use your time and resources to exert pressure on leadership. Write letters, not emails or tweets but
                 physical letters, describing how you feel now and how you will feel when freezing, starving, and
                 struggling for air. Express your love for your family, your fear for their life, your hopes for the
-                future and what can done to secure them. Whether they be a government, a company or an individual,
+                future and what can be done to secure them. Whether they be a government, a company or an individual,
                 you must not let another decide your fate without first considering you."
                 image="assets/images/climateProtest.jpg"
                 alt="A climate protest. A young woman climbs a lamp post holding a sign that reads 'We are the change'." />
