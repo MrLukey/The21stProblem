@@ -15,7 +15,7 @@ const editMessageState = async (request, response) => {
             return response.sendStatus(422)
         }
         const connection = await getDBConnection()
-        await connection.query(`UPDATE messages SET ` + request.body.stateToChange + ` = ` + request.body.newState
+        await connection.query(`UPDATE messages SET seen_by_admin = 1, ` + request.body.stateToChange + ` = ` + request.body.newState
             + ` WHERE id = ` + request.body.messageID + `;`)
         connection.end()
         return response.sendStatus(200)

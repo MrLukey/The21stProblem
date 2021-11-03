@@ -69,35 +69,18 @@ const UserMessagesView = (props) => {
                 <MessagesAccordion
                     eventKey={0}
                     messages={unreadMessages}
-                    messageGroup="Unread Messages"
-                    getMessages={getMessages}
-                    editMessageButton="Mark as Read"
-                    stateToChange="seen_by_admin"
-                    newState={1} />
+                    messageGroup="New"
+                    getMessages={getMessages} />
                 <MessagesAccordion
                     eventKey={-1}
-                    messages={readMessages}
-                    messageGroup="Read Messages"
-                    getMessages={getMessages}
-                    editMessageButton="Mark as Replied"
-                    stateToChange="reply_sent"
-                    newState={1} />
+                    messages={repliedMessages}
+                    messageGroup="Replied"
+                    getMessages={getMessages} />
                 <MessagesAccordion
                     eventKey={-2}
-                    messages={repliedMessages}
-                    messageGroup="Replied Messages"
-                    getMessages={getMessages}
-                    editMessageButton="Mark as Archived"
-                    stateToChange="to_delete"
-                    newState={1} />
-                <MessagesAccordion
-                    eventKey={-3}
                     messages={archivedMessages}
-                    messageGroup="Archived Messages"
-                    getMessages={getMessages}
-                    editMessageButton="Delete"
-                    stateToChange="to_delete"
-                    newState={1} />
+                    messageGroup="Archived"
+                    getMessages={getMessages} />
             </Accordion>
         </section>
     )
