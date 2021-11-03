@@ -5,7 +5,6 @@ import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTim
 
 const UserMessagesView = (props) => {
     const [unreadMessages, setUnreadMessages] = useState([])
-    const [readMessages, setReadMessages] = useState([])
     const [repliedMessages, setRepliedMessages] = useState([])
     const [archivedMessages, setArchivedMessages] = useState([])
 
@@ -36,14 +35,11 @@ const UserMessagesView = (props) => {
             .then(data => {
                 const indexedMessages = indexMessagesByID(data)
                 const _unreadMessages = []
-                const _readMessages = []
                 const _repliedMessages = []
                 const _archivedMessages = []
                 indexedMessages.forEach(message => {
                     if (message.seenByAdmin === 0){
                         _unreadMessages[message.id] = message
-                    } else if (message.replySent === 0 && message.toDelete === 0){
-                        _readMessages[message.id] = message
                     } else if (message.replySent === 1 && message.toDelete === 0){
                         _repliedMessages[message.id] = message
                     } else if (message.toDelete === 1){
@@ -51,7 +47,6 @@ const UserMessagesView = (props) => {
                     }
                 })
                 setUnreadMessages(_unreadMessages)
-                setReadMessages(_readMessages)
                 setRepliedMessages(_repliedMessages)
                 setArchivedMessages(_archivedMessages)
             }).catch(error => error)
