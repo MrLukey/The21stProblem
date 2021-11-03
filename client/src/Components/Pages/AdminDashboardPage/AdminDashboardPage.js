@@ -11,30 +11,29 @@ const AdminDashboardPage = (props) => {
 
     const history = useHistory()
     const [activeView, setActiveView] = useState('')
-
-
     const setNavDisplay = props.setNavDisplay
+
     useEffect(() => {
         setNavDisplay('d-none')
-        // const url = 'http://localhost:3001/verify-admin'
-        // const requestOptions = {
-        //     method: 'GET',
-        //     headers: {'Content-Type': 'application/json'}
-        // }
-        // fetch(url, requestOptions)
-        //     .then(response => {
-        //         if (response.status !== 200){
-        //             history.push('admin-login')
-        //         }
-        //     })
-        //     .catch(error => error)
-    }, [setNavDisplay,history])
+        const url = 'http://localhost:3001/verify-admin'
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'}
+        }
+        fetch(url, requestOptions)
+            .then(response => {
+                if (response.status !== 200){
+                    history.push('admin-login')
+                }
+            })
+            .catch(error => error)
+    }, [setNavDisplay, history])
 
     return (
         <section className="d-flex flex-row flex-nowrap">
             <PageLogger page="admin_dashboard" />
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
-            <div className="bg-light w-100 overflow-auto">
+            <div className="bg-light w-100">
                 <ActivityView activeView={activeView} />
                 <UserMessagesView activeView={activeView} />
                 <SignUpView activeView={activeView} />
