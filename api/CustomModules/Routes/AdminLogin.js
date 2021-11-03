@@ -6,7 +6,7 @@ const validateAdminLogin = [
     body('email').isEmail().isLength({min: 5, max: 255}).trim().escape(),
     body('password').isLength({min: 8, max: 255}).trim().escape()
 ]
-const adminLogin = async (request, response, next) => {
+const logAdminIn = async (request, response, next) => {
     const errors = validationResult(request)
     try {
         if (!errors.isEmpty()) {
@@ -36,5 +36,5 @@ const adminLogin = async (request, response, next) => {
 
 module.exports = {
     validateAdminLogin: validateAdminLogin,
-    adminLogin: adminLogin
+    logAdminIn: logAdminIn
 }
