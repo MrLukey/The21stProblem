@@ -24,60 +24,70 @@ const SignUpView = (props) => {
         return indexedSignUps
     }
 
+    const adminValid = props.adminValid
+    const setAdminValid = props.setAdminValid
     const getSignUps = () => {
-        const url = 'http://localhost:3001/sign-ups'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                startDate: startDate,
-                endDate: endDate
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                const indexedSignUps = indexSignUpsByID(data)
-                let _newSignUps = []
-                let _oldUsers = []
-                let _scientists = []
-                let _engineers = []
-                let _politicians = []
-                let _influencers = []
-                let _other = []
-                indexedSignUps.forEach(signUp => {
-                    if (signUp.seenByAdmin === 1){
-                        switch (signUp.profession){
-                            case 'Scientist':
-                                _scientists[signUp.id] = signUp
-                                break
-                            case 'Engineer':
-                                _engineers[signUp.id] = signUp
-                                break
-                            case 'Politician':
-                                _politicians[signUp.id] = signUp
-                                break
-                            case 'Influencer':
-                                _influencers[signUp.id] = signUp
-                                break
-                            default:
-                                _other[signUp.id] = signUp
-                        }
-                    }
-                    if (signUp.seenByAdmin === 0){
-                        _newSignUps[signUp.id] = signUp
-                    } else {
-                        _oldUsers[signUp.id] = signUp
+        if (adminValid){
+            const url = 'http://localhost:3001/sign-ups'
+            const requestOptions = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    startDate: startDate,
+                    endDate: endDate
+                })
+            }
+            fetch(url, requestOptions)
+                .then(response => {
+                    if (response.status === 200){
+                        return response.json()
+                    } else if (response.status === 403){
+                        setAdminValid(false)
                     }
                 })
-                setNewSignUps(_newSignUps)
-                setOldUsers(_oldUsers)
-                setScientists(_scientists)
-                setEngineers(_engineers)
-                setPoliticians(_politicians)
-                setInfluencers(_influencers)
-                setOther(_other)
-            }).catch(error => error)
+                .then(data => {
+                    const indexedSignUps = indexSignUpsByID(data)
+                    let _newSignUps = []
+                    let _oldUsers = []
+                    let _scientists = []
+                    let _engineers = []
+                    let _politicians = []
+                    let _influencers = []
+                    let _other = []
+                    indexedSignUps.forEach(signUp => {
+                        if (signUp.seenByAdmin === 1){
+                            switch (signUp.profession){
+                                case 'Scientist':
+                                    _scientists[signUp.id] = signUp
+                                    break
+                                case 'Engineer':
+                                    _engineers[signUp.id] = signUp
+                                    break
+                                case 'Politician':
+                                    _politicians[signUp.id] = signUp
+                                    break
+                                case 'Influencer':
+                                    _influencers[signUp.id] = signUp
+                                    break
+                                default:
+                                    _other[signUp.id] = signUp
+                            }
+                        }
+                        if (signUp.seenByAdmin === 0){
+                            _newSignUps[signUp.id] = signUp
+                        } else {
+                            _oldUsers[signUp.id] = signUp
+                        }
+                    })
+                    setNewSignUps(_newSignUps)
+                    setOldUsers(_oldUsers)
+                    setScientists(_scientists)
+                    setEngineers(_engineers)
+                    setPoliticians(_politicians)
+                    setInfluencers(_influencers)
+                    setOther(_other)
+                }).catch(error => error)
+        }
     }
 
     useEffect(() => {

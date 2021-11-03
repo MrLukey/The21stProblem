@@ -10,6 +10,7 @@ import ActionsView from "../../AdminViews/ActionsView/ActionsView";
 const AdminDashboardPage = (props) => {
 
     const history = useHistory()
+    const [adminValid, setAdminValid] = useState(false)
     const [activeView, setActiveView] = useState('')
     const setNavDisplay = props.setNavDisplay
 
@@ -22,22 +23,26 @@ const AdminDashboardPage = (props) => {
         }
         fetch(url, requestOptions)
             .then(response => {
-                if (response.status !== 200){
-                    history.push('admin-login')
+                if (response.status === 200){
+                    setAdminValid(true)
+                } else {
+                    history.push('./admin-login')
                 }
             })
             .catch(error => error)
-    }, [setNavDisplay, history])
+    }, [setNavDisplay, history, adminValid])
+
+    const adminProps = {adminValid: adminValid, setAdminValid: setAdminValid, activeView: activeView}
 
     return (
         <section className="d-flex flex-row flex-nowrap">
             <PageLogger page="admin_dashboard" />
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
             <div className="bg-light w-100">
-                <ActivityView activeView={activeView} />
-                <UserMessagesView activeView={activeView} />
-                <SignUpView activeView={activeView} />
-                <ActionsView activeView={activeView} />
+                <ActivityView {...adminProps} />
+                <UserMessagesView {...adminProps} />
+                <SignUpView {...adminProps} />
+                <ActionsView {...adminProps} />
             </div>
         </section>
     )
