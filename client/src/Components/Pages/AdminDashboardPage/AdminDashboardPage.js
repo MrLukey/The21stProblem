@@ -5,6 +5,7 @@ import ActivityView from "../../AdminViews/ActivityView/ActivityView";
 import UserMessagesView from "../../AdminViews/UserMessagesView/UserMessagesView";
 import SignUpView from "../../AdminViews/SignUpView/SignUpView";
 import PageLogger from "../../PageLogger/PageLogger";
+import ActionsView from "../../AdminViews/ActionsView/ActionsView";
 
 const AdminDashboardPage = (props) => {
 
@@ -37,6 +38,7 @@ const AdminDashboardPage = (props) => {
                 <ActivityView activeView={activeView} />
                 <UserMessagesView activeView={activeView} />
                 <SignUpView activeView={activeView} />
+                <ActionsView activeView={activeView} />
             </div>
         </section>
     )

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 // import MainPageActivityRadar from "../../Charts/AdminCharts/MainPageActivityRadar/MainPageActivityRadar";
 // import DataPageActivityRadar from "../../Charts/AdminCharts/DataPageActivityRadar/DataPageActivityRadar";
-import CustomBarChart from "../../Charts/CustomBarChart/CustomBarChart";
+//import CustomBarChart from "../../Charts/CustomBarChart/CustomBarChart";
 import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTimeframeNav";
 import ActivitySummary from "../../Charts/AdminCharts/ActivitySummary/ActivitySummary";
 
@@ -27,7 +27,6 @@ const ActivityView = (props) => {
         fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setAllSiteActivity(data)
             })
             .catch(error => error)
