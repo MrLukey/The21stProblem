@@ -60,26 +60,6 @@ const UserMessagesView = (props) => {
     useEffect(() => {
        getMessages()
     }, [startDate, endDate])
-//
-    const editMessageState = (messageID, stateToChange, newState) => {
-        const url = 'http://localhost:3001/edit-message-state'
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                messageID: messageID,
-                stateToChange: stateToChange,
-                newState: newState
-            })
-        }
-        fetch(url, requestOptions)
-            .then(response => {
-                if (response.status === 200){
-                    getMessages()
-                }
-            })
-            .catch(error => error)
-    }
 
     const dataTimeframeProps = {startDate: startDate, setStartDate: setStartDate, endDate: endDate, setEndDate: setEndDate}
     return (
@@ -90,7 +70,7 @@ const UserMessagesView = (props) => {
                     eventKey={0}
                     messages={unreadMessages}
                     messageGroup="Unread Messages"
-                    editMessageState={editMessageState}
+                    getMessages={getMessages}
                     editMessageButton="Mark as Read"
                     stateToChange="seen_by_admin"
                     newState={1} />
@@ -98,7 +78,7 @@ const UserMessagesView = (props) => {
                     eventKey={-1}
                     messages={readMessages}
                     messageGroup="Read Messages"
-                    editMessageState={editMessageState}
+                    getMessages={getMessages}
                     editMessageButton="Mark as Replied"
                     stateToChange="reply_sent"
                     newState={1} />
@@ -106,7 +86,7 @@ const UserMessagesView = (props) => {
                     eventKey={-2}
                     messages={repliedMessages}
                     messageGroup="Replied Messages"
-                    editMessageState={editMessageState}
+                    getMessages={getMessages}
                     editMessageButton="Mark as Archived"
                     stateToChange="to_delete"
                     newState={1} />
@@ -114,7 +94,7 @@ const UserMessagesView = (props) => {
                     eventKey={-3}
                     messages={archivedMessages}
                     messageGroup="Archived Messages"
-                    editMessageState={editMessageState}
+                    getMessages={getMessages}
                     editMessageButton="Delete"
                     stateToChange="to_delete"
                     newState={1} />
