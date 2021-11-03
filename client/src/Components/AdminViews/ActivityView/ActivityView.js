@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 // import DataPageActivityRadar from "../../Charts/AdminCharts/DataPageActivityRadar/DataPageActivityRadar";
 import CustomBarChart from "../../Charts/CustomBarChart/CustomBarChart";
 import AdminDataTimeframeNav from "../../Navs/AdminDataTimeframeNav/AdminDataTimeframeNav";
+import ActivitySummary from "../../Charts/AdminCharts/ActivitySummary/ActivitySummary";
 
 const ActivityView = (props) => {
 
@@ -37,7 +38,8 @@ const ActivityView = (props) => {
     return (
         <section className={props.activeView === 'activity' ? '' : 'd-none'}>
             <AdminDataTimeframeNav {...dataTimeframeProps} />
-            <CustomBarChart {...activityBarChartProps} />
+            <ActivitySummary activtyData={allSiteActivity} />
+            {/*<CustomBarChart {...activityBarChartProps} />*/}
         </section>
         // <div className="w-100">
         //     <div className="w-50 h-100 m-5">
