@@ -34,7 +34,7 @@ const AdminDashboardPage = (props) => {
         <section className="d-flex flex-row flex-nowrap">
             <PageLogger page="admin_dashboard" />
             <SideBarNav activeView={activeView} setActiveView={setActiveView} />
-            <div className="bg-light d-flex flex-column flex-nowrap w-100">
+            <div className="bg-light w-100 overflow-auto">
                 <ActivityView activeView={activeView} />
                 <UserMessagesView activeView={activeView} />
                 <SignUpView activeView={activeView} />
