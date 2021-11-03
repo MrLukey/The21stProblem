@@ -13,9 +13,9 @@ const getSignUps = async (request, response) => {
             return response.sendStatus(422)
         }
         const connection = await getDBConnection()
-        const signUpData = await connection.query(`SELECT id, first_name AS firstName, last_name AS lastName, residence,
-        profession, reason_for_joining AS reasonForJoining, date_joined AS dateJoined, seen_by_admin AS seenByAdmin,
-        action_email_sent AS actionEmailSent FROM sign_ups
+        const signUpData = await connection.query(`SELECT id, first_name AS firstName, last_name AS lastName, 
+        email, residence, profession, reason_for_joining AS reasonForJoining, date_joined AS dateJoined, seen_by_admin 
+        AS seenByAdmin, action_email_sent AS actionEmailSent FROM sign_ups
         WHERE STR_TO_DATE(date_joined, '%d/%m/%Y') >= STR_TO_DATE('` + request.body.startDate + `', '%d/%m/%Y')
         AND STR_TO_DATE(date_joined, '%d/%m/%Y') <= STR_TO_DATE('` + request.body.endDate + `', '%d/%m/%Y')`)
         connection.end()
