@@ -18,23 +18,24 @@ import {useState} from "react";
 
 function App() {
 
+    const [activePage, setActivePage] = useState('')
     const [navDisplay, setNavDisplay] = useState('')
     const adminDashProps = {navDisplay: navDisplay, setNavDisplay: setNavDisplay}
 
     return (
         <Router>
-            <SiteNav navDisplay={navDisplay}/>
+            <SiteNav activePage={activePage} navDisplay={navDisplay}/>
             <Switch>
                 <Route exact path="/" component={CoverPage} />
                 <Route exact path="/admin-login" render={() => <AdminLoginPage setNavDisplay={setNavDisplay} />} />
                 <Route exact path="/admin-dashboard" render={() => <AdminDashboardPage {...adminDashProps} />} />
                 <Route path="/about" component={AboutPage} />
-                <Route path="/problem" component={ProblemPage} />
+                <Route path="/problem" render={() => <ProblemPage setActivePage={setActivePage} />} />
                 <Route path="/problem-data" component={ProblemDataPage} />
-                <Route path="/solution" component={SolutionPage} />
+                <Route path="/solution" render={() => <SolutionPage setActivePage={setActivePage} />} />
                 <Route path="/solution-data" component={SolutionDataPage} />
-                <Route path="/new-world" component={NewWorldPage} />
-                <Route path="/what-to-do" component={WhatToDoPage} />
+                <Route path="/new-world" render={() => <NewWorldPage setActivePage={setActivePage} />} />
+                <Route path="/what-to-do" render={() => <WhatToDoPage setActivePage={setActivePage} />} />
                 <Route path="/references" component={ReferencesPage} />
                 <Route path="/contact" component={ContactPage} />
                 <Route path="/sign-up" component={SignUpPage} />

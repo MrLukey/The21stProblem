@@ -25,10 +25,10 @@ const SiteNav = (props) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="problem">The Problem</Nav.Link>
-                        <Nav.Link href="solution">The Solution</Nav.Link>
-                        <Nav.Link href="new-world">A New World</Nav.Link>
-                        <Nav.Link href="what-to-do">What To Do Now</Nav.Link>
+                        <Nav.Link href="problem" active={props.activePage === 'problem'}>The Problem</Nav.Link>
+                        <Nav.Link href="solution" active={props.activePage === 'solution'}>The Solution</Nav.Link>
+                        <Nav.Link href="new-world" active={props.activePage === 'newWorld'}>A New World</Nav.Link>
+                        <Nav.Link href="what-to-do" active={props.activePage === 'whatToDo'}>What To Do Now</Nav.Link>
                         <a className="nav-link"
                            href={pdfVersion} download="the-21st-problem"
                            onClick={logPDFDownload}>Download PDF</a>

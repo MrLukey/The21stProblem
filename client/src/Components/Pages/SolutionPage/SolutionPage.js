@@ -1,10 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import RightImageHero from "../../Heroes/RightImageHero";
 import LeftImageHero from "../../Heroes/LeftImageHero";
 import CallToActionHero from "../../Heroes/CallToActionHero";
 import PageLogger from "../../PageLogger/PageLogger";
 
-const SolutionPage = () => {
+const SolutionPage = (props) => {
+
+    const setActivePage = props.setActivePage
+    useEffect(() => {
+        setActivePage('solution')
+    }, [setActivePage])
+
     return (
         <section className="bg-dark">
             <PageLogger page="solution" />
